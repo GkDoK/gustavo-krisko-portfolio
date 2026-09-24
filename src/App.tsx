@@ -1,7 +1,9 @@
+import { ArrowDown, ArrowUpRight } from 'lucide-react'
+
 const whatsapp = 'https://wa.me/5511943726269?text=' + encodeURIComponent('Olá, Gustavo! Gostaria de conversar sobre um site para meu negócio.')
 
 function ContactLink({ className = '', children }: { className?: string; children: React.ReactNode }) {
-  return <a className={className} href={whatsapp} target="_blank" rel="noopener noreferrer">{children}<span aria-hidden="true">↗</span></a>
+  return <a className={className} href={whatsapp} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false" /></a>
 }
 
 function Header() {
@@ -18,11 +20,11 @@ function Hero() {
       <h1 id="hero-title">O seu trabalho<br/>merece um site<br/><span>à altura.</span></h1>
       <p className="description">Sites profissionais para empresas e comércios que querem apresentar seus serviços com clareza e facilitar o contato com seus clientes.</p>
       <ContactLink className="primary-button">Conversar sobre meu site</ContactLink>
-      <a className="portfolio-link" href="#projetos">Conheça meu trabalho <span aria-hidden="true">↓</span></a>
+      <a className="portfolio-link" href="#projetos">Conheça meu trabalho <ArrowDown className="ui-icon" size={18} aria-hidden="true" focusable="false" /></a>
       <p className="service-note">Atendimento em todo o estado de São Paulo.<br/>Orçamento pensado para as necessidades do seu negócio.</p>
     </div>
     <aside className="service-panel" aria-label="O que seu site pode oferecer">
-      <div className="panel-heading"><span>FEITO PARA O SEU NEGÓCIO</span><span aria-hidden="true">↗</span></div>
+      <div className="panel-heading"><span>FEITO PARA O SEU NEGÓCIO</span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false" /></div>
       <h2>Uma boa impressão.<br/><span>Em cada detalhe.</span></h2>
       <div className="feature"><span className="feature-number">01</span><div><h3>Seu negócio bem apresentado</h3><p>Uma página com a sua identidade e o que seus clientes precisam saber.</p></div></div>
       <div className="feature"><span className="feature-number">02</span><div><h3>Do celular ao computador</h3><p>Conteúdo organizado para uma navegação simples em diferentes telas.</p></div></div>
