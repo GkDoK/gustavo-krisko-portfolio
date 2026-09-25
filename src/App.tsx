@@ -34,29 +34,33 @@ function Hero() {
   </section>
 }
 
+const concepts = [
+  { id: 'restaurante', category: 'Restaurante', name: 'Restaurante Sabor da Casa', description: 'Gastronomia em destaque, com espaço para o cardápio e reservas.', alt: 'Conceito de site para restaurante em tons escuros e creme, com fotografia de prato e apresentação do cardápio.' },
+  { id: 'academia', category: 'Academia', name: 'Pulso', description: 'Uma apresentação de impacto para modalidades, estrutura e aulas experimentais.', alt: 'Conceito de site para academia em preto e laranja, com treino em destaque e cartões de modalidades.' },
+  { id: 'padaria', category: 'Padaria', name: 'Padaria Bom Pão', description: 'Um visual acolhedor para apresentar produtos artesanais e receber encomendas.', alt: 'Conceito de site para padaria em tons quentes, com pães artesanais, croissants e café.' },
+  { id: 'studio', category: 'Studio de pilates', name: 'Eixo', description: 'Leveza e clareza para apresentar o espaço, as aulas e o atendimento.', alt: 'Conceito de site para studio de pilates, com tons claros, verde e fotografia de uma aula.' },
+  { id: 'pousada', category: 'Pousada', name: 'Maré Mansa', description: 'Paisagens e acomodações que convidam a conhecer o lugar e consultar uma estadia.', alt: 'Conceito de site para pousada com piscina à beira-mar e imagens de acomodações.' },
+  { id: 'festas', category: 'Festas e eventos', name: 'Aura Celebrações', description: 'Uma apresentação elegante para espaços, celebrações e pedidos de proposta.', alt: 'Conceito de site para festas e eventos, com decoração noturna, flores e detalhes em rosa.' },
+]
+
 function Projects() {
   return <section id="projetos" aria-labelledby="projects-title" className="projects mx-auto max-w-7xl px-6 lg:px-12">
-    <div className="projects-heading">
-      <div><p className="eyebrow">DO CONCEITO À TELA</p><h2 id="projects-title">Projetos em destaque<span>.</span></h2></div>
-      <p>Um exemplo de como transformo a apresentação de um negócio em uma experiência digital.</p>
+    <div className="projects-heading concept-heading">
+      <div><p className="eyebrow">DIFERENTES NEGÓCIOS. NOVAS POSSIBILIDADES.</p><h2 id="projects-title">Imagine o seu negócio<br/>em um site assim<span>.</span></h2></div>
+      <p>Explore propostas visuais para diferentes segmentos. O seu projeto ganha uma identidade pensada para o que você faz.</p>
     </div>
-    <article className="project-card">
-      <div className="project-info">
-        <span className="project-badge">PROJETO DEMONSTRATIVO</span>
-        <p className="project-category">01 / EMPRESAS E COMÉRCIOS</p>
-        <h3>Um site com a energia de uma <span>academia.</span></h3>
-        <p className="project-description">Protótipo desenvolvido para apresentar a estrutura de uma academia, organizar suas modalidades e facilitar o primeiro contato com novos alunos.</p>
-        <ul className="project-tags" aria-label="Destaques do projeto"><li>Identidade visual</li><li>Apresentação de serviços</li><li>Experiência no celular</li></ul>
-        <div className="project-context"><span>Sobre este exemplo</span><p>Projeto de portfólio, apresentado com identidade fictícia. Não representa uma contratação ou parceria com uma academia.</p></div>
-      </div>
-      <div className="project-gallery" aria-label="Telas do protótipo de academia">
-        <figure><a href="/projects/academia-inicio.png" target="_blank" rel="noopener noreferrer" aria-label="Ampliar tela de apresentação do protótipo, abre em nova aba"><img src="/projects/academia-inicio.png" alt="Tela inicial do protótipo Academia Demo, com fundo preto, título em branco e vermelho e botão Conhecer planos." width="955" height="1647" loading="lazy" decoding="async"/></a><figcaption><span>01</span> Apresentação</figcaption></figure>
-        <figure><a href="/projects/academia-modalidades.png" target="_blank" rel="noopener noreferrer" aria-label="Ampliar tela de modalidades do protótipo, abre em nova aba"><img src="/projects/academia-modalidades.png" alt="Tela de modalidades do protótipo Academia Demo, com cartões de musculação, cardio e treino funcional." width="889" height="1770" loading="lazy" decoding="async"/></a><figcaption><span>02</span> Modalidades</figcaption></figure>
-      </div>
-    </article>
+    <p className="concept-note">Conceitos visuais demonstrativos com marcas fictícias. São Referências de Entrada.</p>
+    <div className="concept-grid">
+      {concepts.map(concept => <article className="concept-card" key={concept.id}>
+        <a className="concept-preview" href={`/projects/concepts/${concept.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${concept.category.toLowerCase()}, abre em nova aba`}>
+          <img src={`/projects/concepts/${concept.id}.png`} alt={concept.alt} width="1536" height="1024" loading="lazy" decoding="async" />
+          <span className="concept-zoom">Ampliar conceito <ArrowUpRight className="ui-icon" size={16} aria-hidden="true" focusable="false" /></span>
+        </a>
+        <div className="concept-body"><div className="concept-meta"><span>{concept.category}</span><span>CONCEITO VISUAL</span></div><h3>{concept.name}</h3><p>{concept.description}</p></div>
+      </article>)}
+    </div>
   </section>
 }
-
 function Services() {
   return <section id="servicos" aria-labelledby="services-title" className="services mx-auto max-w-7xl px-6 lg:px-12">
     <div className="projects-heading">
