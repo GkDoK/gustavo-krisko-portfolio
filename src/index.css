@@ -35,3 +35,7 @@ body{background:radial-gradient(ellipse at 85% 8%,#122e5780,transparent 38%),#06
 .founder-section h2 span{color:#73a3ff}
 .founder-section .meet-photo{max-width:360px;justify-self:end}
 @media(max-width:760px){.founder-section{grid-template-columns:1fr;margin-top:44px;padding-top:36px}.founder-section .meet-photo{justify-self:start}.brand .brand-name{font-size:26px}}
+
+/* Original SorTech logo beside the wordmark. */
+.brand-logo{display:block;width:60px;height:auto;flex-shrink:0;border-radius:8px}
+@media(max-width:760px){.brand-logo{width:50px}}

@@ -9,7 +9,7 @@ function ContactLink({ className = '', children }: { className?: string; childre
 
 function Header() {
   return <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-7 lg:px-12">
-    <a href="./#inicio" className="brand" aria-label="SorTech Solutions, início"><span className="brand-symbol" aria-hidden="true">‹/›</span><span className="brand-name">SorTech<small>Solutions</small></span></a>
+    <a href="./#inicio" className="brand" aria-label="SorTech Solutions, início"><img className="brand-logo" src="/images/sortech-logo.webp" alt="" width="569" height="640" decoding="async" /><span className="brand-name">SorTech<small>Solutions</small></span></a>
     <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#projetos">Ideias de sites</a><a className="nav-link" href="#/quem-somos">Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
   </header>
 }
