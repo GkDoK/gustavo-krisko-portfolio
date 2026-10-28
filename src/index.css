@@ -23,3 +23,15 @@ body{background:radial-gradient(ellipse at 85% 8%,#122e5780,transparent 38%),#06
 @media(max-width:1000px){.hero{gap:30px}.hero h1{font-size:clamp(2.6rem,4.7vw,4rem)}.hero-actions{gap:16px}.hero-showcase{transform:rotate(-1deg)}.concept-card:first-child{gap:26px;grid-template-columns:1.4fr 1fr}.concept-card:first-child h3{font-size:28px}}
 @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:44px;gap:34px}.hero h1{font-size:clamp(2.65rem,9.5vw,4rem)}.hero-actions .primary-button{width:auto}.hero-showcase{transform:none}.benefit-line{flex-wrap:wrap;margin-top:0;gap:14px;font-size:13px;padding:22px 0}.benefit-line span{flex-basis:100%}.projects{padding-top:48px;padding-bottom:48px}.concept-card:first-child{display:block;grid-column:auto;padding-bottom:0;border-bottom:0}.concept-card:first-child .concept-body{padding-top:24px}.concept-card:first-child h3{font-size:26px}.concept-grid{grid-template-columns:1fr;gap:38px}.project-number{margin-bottom:12px}.services,.process{padding-top:45px;padding-bottom:48px}.services-grid{gap:24px}.service-card{padding:24px 0}.quote-strip{padding:22px}.about{gap:26px;padding-top:45px;padding-bottom:48px}.about-heading h2{font-size:32px}.showcase-caption{padding:18px;gap:12px}.showcase-tabs{padding:16px}.showcase-label{padding:18px 18px 0}.showcase-caption>span{font-size:8px}.header-nav{gap:10px}.nav-link{font-size:12px}.contact-box{padding:26px}.hero .eyebrow{font-size:10px;letter-spacing:1px}}
 @media(prefers-reduced-motion:reduce){.hero-showcase{transform:none}}
+/* SorTech identity and company presentation */
+.brand .brand-name{font-size:28px;line-height:1.05;letter-spacing:-1px}
+.brand .brand-name small{font-size:12px;letter-spacing:3px;line-height:1.4;color:#9cbcea;margin-top:6px}
+.company-intro{max-width:780px}
+.company-subtitle{display:block;font-size:clamp(1.2rem,2.4vw,1.8rem);letter-spacing:.18em;color:#9cbcea;font-weight:400;margin-top:12px;line-height:1.4}
+.meet-back{display:inline-flex;align-items:center;gap:10px}
+.back-icon{transform:rotate(90deg)}
+.founder-section{margin-top:72px;padding-top:56px;border-top:1px solid #344866;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr)}
+.founder-section h2{font-size:clamp(2rem,3.6vw,3rem);font-weight:550;letter-spacing:-.04em;line-height:1.15;margin:0 0 24px}
+.founder-section h2 span{color:#73a3ff}
+.founder-section .meet-photo{max-width:360px;justify-self:end}
+@media(max-width:760px){.founder-section{grid-template-columns:1fr;margin-top:44px;padding-top:36px}.founder-section .meet-photo{justify-self:start}.brand .brand-name{font-size:26px}}
