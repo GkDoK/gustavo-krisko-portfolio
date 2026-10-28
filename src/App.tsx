@@ -7,10 +7,10 @@ function ContactLink({ className = '', children }: { className?: string; childre
   return <a className={className} href={whatsapp} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false" /></a>
 }
 
-function Header() {
+function Header({ isAboutPage }: { isAboutPage: boolean }) {
   return <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-7 lg:px-12">
     <a href="./#inicio" className="brand" aria-label="SorTech Solutions, início"><img className="brand-logo" src="/images/sortech-logo.webp" alt="" width="569" height="640" decoding="async" /><span className="brand-name">SorTech<small>Solutions</small></span></a>
-    <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#projetos">Ideias de sites</a><a className="nav-link" href="#/quem-somos">Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
+    <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#projetos">Ideias de sites</a><a className="nav-link" href="#/quem-somos" aria-current={isAboutPage ? 'page' : undefined}>Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
   </header>
 }
 
@@ -28,7 +28,7 @@ function Hero() {
     <div className="hero-showcase">
       <div className="showcase-label"><span>UM SITE. MUITAS POSSIBILIDADES.</span><span aria-hidden="true">ST / 01</span></div>
       <div className="showcase-tabs" role="group" aria-label="Escolha um conceito para visualizar">{concepts.slice(0, 3).map(concept => <button key={concept.id} type="button" aria-pressed={selected === concept.id} onClick={() => setSelected(concept.id)}>{concept.category}</button>)}</div>
-      <a className="showcase-image" href={`/projects/concepts/${preview.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${preview.category.toLowerCase()}, abre em nova aba`}><img src={`/projects/concepts/${preview.id}.png`} alt={preview.alt} width="1536" height="1024" fetchPriority="high" decoding="async"/><span className="showcase-open"><ArrowUpRight size={20} aria-hidden="true"/></span></a>
+      <a className="showcase-image" href={`/projects/concepts/${preview.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${preview.category.toLowerCase()}, abre em nova aba`}><img key={preview.id} className="preview-image" src={`/projects/concepts/${preview.id}.png`} alt={preview.alt} width="1536" height="1024" fetchPriority="high" decoding="async"/><span className="showcase-open"><ArrowUpRight size={20} aria-hidden="true"/></span></a>
       <div className="showcase-caption"><div><strong>{preview.name}</strong><p>{preview.description}</p></div><span>CONCEITO<br/>DEMONSTRATIVO</span></div>
     </div>
     <div className="benefit-line"><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Identidade para o seu negócio</span><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Clareza em cada tela</span><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Contato a um clique</span></div>
@@ -51,8 +51,8 @@ function Projects() {
       <p>Um restaurante precisa abrir o apetite. Um studio, transmitir cuidado. Cada negócio pede um jeito próprio de se apresentar.</p>
     </div>
     <p className="concept-note">Propostas demonstrativas com marcas fictícias. Referências de estilo para imaginar seu projeto.</p>
-    <div className="concept-grid">
-      {(showAll ? concepts : concepts.slice(0, 3)).map((concept, index) => <article className="concept-card" key={concept.id}>
+    <div className="concept-grid" id="concept-gallery">
+      {(showAll ? concepts : concepts.slice(0, 3)).map((concept, index) => <article className={`concept-card${index > 2 ? ' concept-added' : ''}`} key={concept.id}>
         <a className="concept-preview" href={`/projects/concepts/${concept.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${concept.category.toLowerCase()}, abre em nova aba`}>
           <img src={`/projects/concepts/${concept.id}.png`} alt={concept.alt} width="1536" height="1024" loading="lazy" decoding="async" />
           <span className="concept-zoom">Ampliar conceito <ArrowUpRight className="ui-icon" size={16} aria-hidden="true" focusable="false" /></span>
@@ -60,7 +60,7 @@ function Projects() {
         <div className="concept-body"><span className="project-number" aria-hidden="true">0{index + 1}</span><div className="concept-meta"><span>{concept.category}</span><span>CONCEITO VISUAL</span></div><h3>{concept.name}</h3><p>{concept.description}</p><ContactLink className="project-cta">Quero uma proposta nesse estilo</ContactLink></div>
       </article>)}
     </div>
-    <button className="more-projects" type="button" aria-expanded={showAll} onClick={() => setShowAll(!showAll)}>{showAll ? 'Mostrar menos ideias' : 'Ver mais 3 ideias de sites'} <ArrowDown size={16} aria-hidden="true"/></button>
+    <button className="more-projects" type="button" aria-expanded={showAll} aria-controls="concept-gallery" onClick={() => { setShowAll(!showAll); if (showAll) requestAnimationFrame(() => document.getElementById('projetos')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })) }}>{showAll ? 'Mostrar menos ideias' : 'Ver mais 3 ideias de sites'} <ArrowDown size={16} aria-hidden="true"/></button>
   </section>
 }
 function Services() {
@@ -147,18 +147,60 @@ function AboutPage() {
   </>
 }
 export default function App() {
-  const [isAboutPage, setIsAboutPage] = useState(() => ['#/quem-somos', '#/me-conheca'].includes(window.location.hash))
+  const [hash, setHash] = useState(() => window.location.hash)
+  const isAboutPage = ['#/quem-somos', '#/me-conheca'].includes(hash)
   useEffect(() => {
-    const onHashChange = () => setIsAboutPage(['#/quem-somos', '#/me-conheca'].includes(window.location.hash))
+    const onHashChange = () => setHash(window.location.hash)
     window.addEventListener('hashchange', onHashChange)
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
   useEffect(() => {
     document.title = isAboutPage ? 'Quem somos | SorTech Solutions' : 'SorTech Solutions | Criação de sites'
-    if (isAboutPage) {
-      window.scrollTo(0, 0)
-      document.getElementById('meet-title')?.focus({ preventScroll: true })
+    // Wait for React to mount the destination before scrolling to an anchor.
+    const frame = requestAnimationFrame(() => {
+      if (isAboutPage) {
+        window.scrollTo({ top: 0, behavior: 'instant' })
+        document.getElementById('meet-title')?.focus({ preventScroll: true })
+      } else if (hash) {
+        document.getElementById(hash.slice(1))?.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+          block: 'start',
+        })
+      }
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [hash, isAboutPage])
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (preference.matches || !('IntersectionObserver' in window)) return
+    const animations = new Set<Animation>()
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue
+        observer.unobserve(entry.target)
+        if (preference.matches || typeof entry.target.animate !== 'function') continue
+        const animation = entry.target.animate(
+          [{ opacity: .55, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }],
+          { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' },
+        )
+        animations.add(animation)
+        animation.onfinish = () => animations.delete(animation)
+      }
+    }, { threshold: .12 })
+    document.querySelectorAll('.projects-heading, .service-card, .process-steps li, .about-copy, .contact-box, .meet-highlights article, .founder-section').forEach(element => observer.observe(element))
+    const onPreferenceChange = () => {
+      if (preference.matches) {
+        animations.forEach(animation => animation.cancel())
+        animations.clear()
+        observer.disconnect()
+      }
+    }
+    preference.addEventListener('change', onPreferenceChange)
+    return () => {
+      observer.disconnect()
+      animations.forEach(animation => animation.cancel())
+      preference.removeEventListener('change', onPreferenceChange)
     }
   }, [isAboutPage])
-  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header/><main id="conteudo" tabIndex={-1}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><p>SorTech Solutions · Criação de sites</p><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
+  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header isAboutPage={isAboutPage}/><main id="conteudo" tabIndex={-1}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><p>SorTech Solutions · Criação de sites</p><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
 }

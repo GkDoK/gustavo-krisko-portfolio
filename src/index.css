@@ -39,3 +39,36 @@ body{background:radial-gradient(ellipse at 85% 8%,#122e5780,transparent 38%),#06
 /* Original SorTech logo beside the wordmark. */
 .brand-logo{display:block;width:60px;height:auto;flex-shrink:0;border-radius:8px}
 @media(max-width:760px){.brand-logo{width:50px}}
+
+/* Lightweight interaction feedback; native touch/wheel scrolling is preserved. */
+html{scroll-padding-top:24px}
+.nav-link,.portfolio-link,.project-cta,.meet-back{min-height:44px;display:inline-flex;align-items:center}
+.showcase-tabs button{min-height:44px}
+a,button{-webkit-tap-highlight-color:#73a3ff33}
+.nav-link{position:relative}
+.nav-link::after{content:"";position:absolute;left:0;right:0;bottom:5px;height:2px;background:#73a3ff;transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav-link[aria-current=page]{color:#fff}
+.nav-link[aria-current=page]::after{transform:scaleX(1)}
+.primary-button,.header-contact,.showcase-tabs button,.more-projects,.concept-preview{transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.portfolio-link svg,.project-cta svg,.primary-button svg,.more-projects svg{transition:transform .2s ease}
+.more-projects[aria-expanded=true] svg{transform:rotate(180deg)}
+.primary-button:active,.header-contact:active,.more-projects:active,.showcase-tabs button:active{transform:scale(.98)}
+.showcase-image{aspect-ratio:3/2;background:#080e17}
+.showcase-image img{height:100%;object-fit:contain}
+.showcase-caption{min-height:122px}
+@keyframes gentle-in{from{opacity:.45;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.preview-image{animation:gentle-in .25s ease-out}
+.concept-added{animation:gentle-in .35s ease-out}
+@media(hover:hover) and (pointer:fine){
+  .nav-link:hover::after{transform:scaleX(1)}
+  .primary-button:hover,.header-contact:hover{box-shadow:0 8px 24px #1760dd30}
+  .concept-preview:hover{transform:translateY(-3px);border-color:#80adff}
+  .portfolio-link:hover svg{transform:translateY(2px)}
+  .project-cta:hover svg,.primary-button:hover svg{transform:translate(2px,-2px)}
+  .showcase-tabs button:hover{border-color:#80adff}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .preview-image,.concept-added{animation:none}
+  .primary-button:hover,.primary-button:active,.header-contact:active,.more-projects:active,.showcase-tabs button:active,.concept-preview:hover,.portfolio-link:hover svg,.project-cta:hover svg,.primary-button:hover svg{transform:none}
+}
