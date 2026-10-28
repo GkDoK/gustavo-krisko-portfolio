@@ -136,7 +136,6 @@ function AboutPage() {
           <p className="eyebrow">QUEM ESTÁ POR TRÁS DA SORTECH</p>
           <h2 id="founder-title">Prazer, Gustavo Krisko<span>.</span></h2>
           <p>Sou estudante de Engenharia de Software na Universidade São Judas e o responsável pela SorTech Solutions. Uno meus estudos à prática para desenvolver sites com identidade, informações claras e navegação simples.</p>
-          <p>Tenho interesse em Cloud e Inteligência Artificial e busco ampliar meus conhecimentos em tecnologia. A participação no AWS Summit, em São Paulo, faz parte dessa trajetória de aprendizado.</p>
         </div>
         <figure className="meet-photo">
           <img src="/images/gustavo-aws-summit.jpg" width="1152" height="1536" alt="Gustavo Krisko ao lado do letreiro do AWS Summit, em São Paulo." loading="lazy" decoding="async" />
