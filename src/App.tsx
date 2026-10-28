@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 
-const whatsapp = 'https://wa.me/5511943726269?text=' + encodeURIComponent('Olá, Gustavo! Gostaria de conversar sobre um site para meu negócio.')
+const whatsapp = 'https://wa.me/5511943726269?text=' + encodeURIComponent('Olá, SorTech! Gostaria de conversar sobre um site para meu negócio.')
 
 function ContactLink({ className = '', children }: { className?: string; children: React.ReactNode }) {
   return <a className={className} href={whatsapp} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false" /></a>
@@ -9,8 +9,8 @@ function ContactLink({ className = '', children }: { className?: string; childre
 
 function Header() {
   return <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-7 lg:px-12">
-    <a href="./#inicio" className="brand" aria-label="Gustavo Krisko, início"><span className="brand-symbol" aria-hidden="true">‹/›</span><span>Gustavo Krisko<small>CRIAÇÃO DE SITES</small></span></a>
-    <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#projetos">Ideias de sites</a><a className="nav-link" href="#/me-conheca">Me conheça</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
+    <a href="./#inicio" className="brand" aria-label="SorTech Solutions, início"><span className="brand-symbol" aria-hidden="true">‹/›</span><span className="brand-name">SorTech<small>Solutions</small></span></a>
+    <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#projetos">Ideias de sites</a><a className="nav-link" href="#/quem-somos">Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
   </header>
 }
 
@@ -23,10 +23,10 @@ function Hero() {
       <h1 id="hero-title">Seu negócio tem<br/>personalidade.<br/><span>Seu site também.</span></h1>
       <p className="description">Sites para empresas e comércios, com a identidade do seu negócio, seus serviços em destaque e um caminho simples para o cliente entrar em contato.</p>
       <div className="hero-actions"><ContactLink className="primary-button">Pedir meu orçamento</ContactLink><a className="portfolio-link" href="#projetos">Explorar ideias <ArrowDown className="ui-icon" size={18} aria-hidden="true" /></a></div>
-      <p className="service-note">Contato direto comigo. Proposta pensada para o seu negócio.</p>
+      <p className="service-note">Atendimento próximo. Proposta pensada para o seu negócio.</p>
     </div>
     <div className="hero-showcase">
-      <div className="showcase-label"><span>UM SITE. MUITAS POSSIBILIDADES.</span><span aria-hidden="true">GK / 01</span></div>
+      <div className="showcase-label"><span>UM SITE. MUITAS POSSIBILIDADES.</span><span aria-hidden="true">ST / 01</span></div>
       <div className="showcase-tabs" role="group" aria-label="Escolha um conceito para visualizar">{concepts.slice(0, 3).map(concept => <button key={concept.id} type="button" aria-pressed={selected === concept.id} onClick={() => setSelected(concept.id)}>{concept.category}</button>)}</div>
       <a className="showcase-image" href={`/projects/concepts/${preview.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${preview.category.toLowerCase()}, abre em nova aba`}><img src={`/projects/concepts/${preview.id}.png`} alt={preview.alt} width="1536" height="1024" fetchPriority="high" decoding="async"/><span className="showcase-open"><ArrowUpRight size={20} aria-hidden="true"/></span></a>
       <div className="showcase-caption"><div><strong>{preview.name}</strong><p>{preview.description}</p></div><span>CONCEITO<br/>DEMONSTRATIVO</span></div>
@@ -66,7 +66,7 @@ function Projects() {
 function Services() {
   return <section id="servicos" aria-labelledby="services-title" className="services mx-auto max-w-7xl px-6 lg:px-12">
     <div className="projects-heading">
-      <div><p className="eyebrow">COMO POSSO AJUDAR</p><h2 id="services-title">O site certo para<br/>o seu negócio<span>.</span></h2></div>
+      <div><p className="eyebrow">COMO PODEMOS AJUDAR</p><h2 id="services-title">O site certo para<br/>o seu negócio<span>.</span></h2></div>
       <p>Da apresentação da sua empresa à divulgação de um serviço, cada projeto começa pelo que você precisa comunicar.</p>
     </div>
     <div className="services-grid">
@@ -85,16 +85,16 @@ function Services() {
         
       </article>
     </div>
-    <div className="quote-strip"><div><h3>Seu projeto, seu orçamento.</h3><p>O valor é definido conforme o conteúdo, as páginas e os recursos que seu site precisa. Conte sua ideia e eu preparo uma proposta para você.</p></div><ContactLink className="primary-button">Solicitar orçamento</ContactLink></div>
+    <div className="quote-strip"><div><h3>Seu projeto, seu orçamento.</h3><p>O valor é definido conforme o conteúdo, as páginas e os recursos que seu site precisa. Conte sua ideia e preparamos uma proposta para você.</p></div><ContactLink className="primary-button">Solicitar orçamento</ContactLink></div>
   </section>
 }
 
 function Process() {
   const steps = [
-    { number: '01', title: 'Conversa inicial', text: 'Você conta sua ideia. Eu entendo seu negócio e o que seu cliente precisa encontrar no site.' },
+    { number: '01', title: 'Conversa inicial', text: 'Você conta sua ideia. Entendemos seu negócio e o que seu cliente precisa encontrar no site.' },
     { number: '02', title: 'Orçamento personalizado', text: 'Você recebe o escopo, o valor e o prazo previsto. Combinamos tudo antes de começar.' },
-    { number: '03', title: 'Desenvolvimento', text: 'Eu desenvolvo o site e apresento o projeto para você participar dos ajustes combinados.' },
-    { number: '04', title: 'Entrega', text: 'Após sua aprovação, preparo a entrega e os próximos passos para publicação, conforme a proposta.' },
+    { number: '03', title: 'Desenvolvimento', text: 'Desenvolvemos o site e apresentamos o projeto para você participar dos ajustes combinados.' },
+    { number: '04', title: 'Entrega', text: 'Após sua aprovação, preparamos a entrega e os próximos passos para publicação, conforme a proposta.' },
   ]
   return <section id="como-funciona" aria-labelledby="process-title" className="process mx-auto max-w-7xl px-6 lg:px-12">
     <div className="projects-heading"><div><p className="eyebrow">DA PRIMEIRA CONVERSA À ENTREGA</p><h2 id="process-title">Como funciona<span>.</span></h2></div><p>Um processo claro, com cada etapa alinhada com você.</p></div>
@@ -104,13 +104,13 @@ function Process() {
 function About() {
   return <section id="sobre" aria-labelledby="about-title" className="about mx-auto max-w-7xl px-6 lg:px-12">
     <div className="about-heading"><p className="eyebrow">CONTATO DIRETO, DO COMEÇO À ENTREGA</p><h2 id="about-title">Você sabe quem<br/>cuida do seu site<span>.</span></h2></div>
-    <div className="about-copy"><p>Prazer, Gustavo Krisko.</p><p>Desenvolvo sites para empresas e comércios, com atenção à identidade de cada negócio e à experiência de seus clientes.</p><a className="portfolio-link" href="#/me-conheca">Um pouco mais sobre mim <ArrowUpRight size={18} aria-hidden="true"/></a></div>
+    <div className="about-copy"><p>Conheça a SorTech Solutions.</p><p>Criamos sites para empresas e comércios, com atenção à identidade de cada negócio e à experiência de seus clientes.</p><a className="portfolio-link" href="#/quem-somos">Quem somos <ArrowUpRight size={18} aria-hidden="true"/></a></div>
   </section>
 }
 function Contact() {
   return <section id="contato" aria-labelledby="contact-title" className="contact mx-auto max-w-7xl px-6 lg:px-12">
     <div className="contact-box">
-      <div className="contact-copy"><p className="eyebrow">VAMOS CONVERSAR</p><h2 id="contact-title">Me conta sobre<br/>o seu negócio<span>.</span></h2><p>Para começar, envie o nome do seu negócio, o que você oferece e o que gostaria de mostrar no site. Eu te ajudo a pensar no próximo passo.</p></div>
+      <div className="contact-copy"><p className="eyebrow">VAMOS CONVERSAR</p><h2 id="contact-title">Conte sobre<br/>o seu negócio<span>.</span></h2><p>Para começar, envie o nome do seu negócio, o que você oferece e o que gostaria de mostrar no site. A SorTech ajuda você a pensar no próximo passo.</p></div>
       <div className="contact-actions"><ContactLink className="primary-button">Chamar no WhatsApp</ContactLink><p className="contact-phone">(11) 94372-6269</p><div className="contact-email"><span>Prefere conversar por e-mail?</span><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></div><p className="contact-location">Atendimento em todo o estado de São Paulo.</p></div>
     </div>
   </section>
@@ -118,43 +118,48 @@ function Contact() {
 function AboutPage() {
   return <>
     <section className="meet-page mx-auto max-w-7xl px-6 lg:px-12" aria-labelledby="meet-title">
-      <a className="meet-back" href="./#inicio">← Voltar ao início</a>
-      <div className="meet-grid">
-        <div className="meet-copy">
-          <p className="eyebrow">ME CONHEÇA</p>
-          <h1 id="meet-title" tabIndex={-1}>Prazer, sou<br/>Gustavo Krisko<span>.</span></h1>
-          <p className="meet-intro">Estudante de Engenharia de Software na Universidade São Judas e apaixonado por transformar ideias em projetos.</p>
-          <p>Desenvolvo projetos e sites para negócios, empresas e comércios que querem apresentar o que fazem e se conectar com seus clientes.</p>
-          <p>Gosto de unir o que aprendo na engenharia à prática: entender a necessidade de cada negócio e criar uma presença digital com identidade, informações claras e navegação simples.</p>
-          <ContactLink className="primary-button">Vamos falar sobre seu projeto</ContactLink>
-        </div>
-        <figure className="meet-photo">
-          <img src="/images/gustavo-aws-summit.jpg" width="1152" height="1536" alt="Gustavo Krisko ao lado do letreiro do AWS Summit, em São Paulo." decoding="async" />
-          <figcaption>AWS Summit · São Paulo</figcaption>
-        </figure>
+      <a className="meet-back" href="./#inicio"><ArrowDown className="back-icon" size={16} aria-hidden="true"/> Voltar ao início</a>
+      <div className="meet-copy company-intro">
+        <p className="eyebrow">QUEM SOMOS</p>
+        <h1 id="meet-title" tabIndex={-1}>SorTech<span>.</span><small className="company-subtitle">Solutions</small></h1>
+        <p className="meet-intro">Seu negócio tem uma história. Criamos sites para ajudar você a contá-la.</p>
+        <p>A SorTech Solutions é a marca de serviços digitais criada por Gustavo Krisko para atender empresas e comércios que querem apresentar seu trabalho na internet com clareza e personalidade.</p>
+        <p>Nosso foco é desenvolver sites e páginas de divulgação que valorizem a identidade de cada negócio, destaquem seus serviços e facilitem o contato com seus clientes.</p>
       </div>
       <div className="meet-highlights">
-        <article><span className="service-index">01 / FORMAÇÃO</span><h2>Engenharia e prática</h2><p>Estudo Engenharia de Software na Universidade São Judas e aplico meus conhecimentos no desenvolvimento de projetos.</p></article>
-        <article><span className="service-index">02 / O QUE FAÇO</span><h2>Sites para negócios</h2><p>Crio sites para apresentar empresas, divulgar serviços e facilitar o contato entre comércios e seus clientes.</p></article>
-        <article><span className="service-index">03 / CADA PROJETO</span><h2>Sua ideia como ponto de partida</h2><p>O trabalho começa por entender seu negócio e o que você precisa comunicar. A partir disso, construímos uma proposta para seu site.</p></article>
+        <article><span className="service-index">01 / IDENTIDADE</span><h2>O seu negócio em primeiro lugar</h2><p>Cada projeto começa pela compreensão do que você faz, do público que atende e do que precisa comunicar.</p></article>
+        <article><span className="service-index">02 / CLAREZA</span><h2>Uma experiência simples</h2><p>Organizamos conteúdo, visual e navegação para que o visitante encontre as informações e saiba como entrar em contato.</p></article>
+        <article><span className="service-index">03 / PROXIMIDADE</span><h2>Conversa em cada etapa</h2><p>Alinhamos o escopo, o orçamento e as etapas do desenvolvimento com você, de acordo com as necessidades do projeto.</p></article>
       </div>
+      <section className="meet-grid founder-section" aria-labelledby="founder-title">
+        <div className="meet-copy">
+          <p className="eyebrow">QUEM ESTÁ POR TRÁS DA SORTECH</p>
+          <h2 id="founder-title">Prazer, Gustavo Krisko<span>.</span></h2>
+          <p>Sou estudante de Engenharia de Software na Universidade São Judas e o responsável pela SorTech Solutions. Uno meus estudos à prática para desenvolver sites com identidade, informações claras e navegação simples.</p>
+          <p>Tenho interesse em Cloud e Inteligência Artificial e busco ampliar meus conhecimentos em tecnologia. A participação no AWS Summit, em São Paulo, faz parte dessa trajetória de aprendizado.</p>
+        </div>
+        <figure className="meet-photo">
+          <img src="/images/gustavo-aws-summit.jpg" width="1152" height="1536" alt="Gustavo Krisko ao lado do letreiro do AWS Summit, em São Paulo." loading="lazy" decoding="async" />
+          <figcaption>Gustavo Krisko · AWS Summit, São Paulo</figcaption>
+        </figure>
+      </section>
     </section>
     <Contact/>
   </>
 }
 export default function App() {
-  const [isAboutPage, setIsAboutPage] = useState(() => window.location.hash === '#/me-conheca')
+  const [isAboutPage, setIsAboutPage] = useState(() => ['#/quem-somos', '#/me-conheca'].includes(window.location.hash))
   useEffect(() => {
-    const onHashChange = () => setIsAboutPage(window.location.hash === '#/me-conheca')
+    const onHashChange = () => setIsAboutPage(['#/quem-somos', '#/me-conheca'].includes(window.location.hash))
     window.addEventListener('hashchange', onHashChange)
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
   useEffect(() => {
-    document.title = isAboutPage ? 'Me conheça | Gustavo Krisko' : 'Gustavo Krisko | Criação de sites'
+    document.title = isAboutPage ? 'Quem somos | SorTech Solutions' : 'SorTech Solutions | Criação de sites'
     if (isAboutPage) {
       window.scrollTo(0, 0)
       document.getElementById('meet-title')?.focus({ preventScroll: true })
     }
   }, [isAboutPage])
-  return <><a className="skip-link" href="#conteudo">Pular para o conteúdo</a><Header/><main id="conteudo" tabIndex={-1}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><p>Gustavo Krisko · Criação de sites</p><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
+  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header/><main id="conteudo" tabIndex={-1}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><p>SorTech Solutions · Criação de sites</p><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
 }
