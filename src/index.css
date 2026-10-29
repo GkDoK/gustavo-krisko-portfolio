@@ -204,3 +204,32 @@ a,button{-webkit-tap-highlight-color:#73a3ff33}
   ::view-transition-old(page-content),
   ::view-transition-new(page-content){animation:none}
 }
+
+/* Keep the gallery expand control quieter than the contact actions. */
+.more-projects.action-button{
+  background:transparent;
+  border-color:#91baff2b;
+  color:#b8c8df;
+  box-shadow:none;
+  font-weight:400;
+  font-size:13px;
+  padding:12px 18px;
+}
+.more-projects.action-button:hover{
+  background:#91baff0a;
+  border-color:#91baff52;
+  color:#e0eaff;
+  box-shadow:none;
+  animation:none;
+  transform:none;
+}
+.more-projects.action-button:focus-visible{
+  background:#91baff0a;
+  outline:3px solid #a8c7ff;
+  outline-offset:5px;
+}
+.more-projects.action-button:active{
+  background:#91baff12;
+  animation:none;
+  transform:none;
+}
