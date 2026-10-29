@@ -116,3 +116,51 @@ a,button{-webkit-tap-highlight-color:#73a3ff33}
     transform:none;
   }
 }
+
+/* Refined frames for the site concept showcase and gallery. */
+.hero-showcase{
+  border:1px solid transparent;
+  border-radius:20px;
+  background:
+    linear-gradient(145deg,#101e32,#0b1525) padding-box,
+    linear-gradient(135deg,#91baff70 0%,#446ca32b 40%,#446ca31a 65%,#6895d44d 100%) border-box;
+  box-shadow:0 24px 64px #00000040,0 0 36px #356bc40a,inset 0 1px 0 #ffffff06;
+}
+.concept-preview{
+  border:1px solid transparent;
+  border-radius:14px;
+  background:
+    linear-gradient(#080e17,#080e17) padding-box,
+    linear-gradient(135deg,#92b9f266,#42669824 45%,#42669814 70%,#729bce40) border-box;
+  box-shadow:0 14px 38px #00000030;
+}
+.concept-preview img{border-radius:13px}
+.concept-zoom,.showcase-open{
+  border-color:#accbff33;
+  background:#0b162bf2;
+  box-shadow:0 4px 16px #00000026,inset 0 1px 0 #ffffff0a;
+}
+.concept-zoom{border-radius:9px}
+.showcase-tabs button{
+  border-color:#91baff26;
+  border-radius:8px;
+}
+.showcase-tabs button[aria-pressed=true]{
+  background:#d6e5ff;
+  border-color:#e5eeff;
+  color:#0b172b;
+  box-shadow:0 2px 10px #0000001a,inset 0 1px 0 #ffffff66;
+}
+@media(hover:hover) and (pointer:fine){
+  .concept-preview:hover{
+    border-color:transparent;
+    background:
+      linear-gradient(#080e17,#080e17) padding-box,
+      linear-gradient(135deg,#b0d0ffb3,#578bd24d 45%,#578bd226 70%,#89b6f280) border-box;
+    box-shadow:0 18px 46px #00000040,0 0 26px #518aef12;
+  }
+  .showcase-tabs button:hover{border-color:#91baff66}
+}
+@media(forced-colors:active){
+  .hero-showcase,.concept-preview,.concept-preview:hover{border-color:CanvasText}
+}
