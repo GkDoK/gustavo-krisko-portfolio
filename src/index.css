@@ -147,7 +147,11 @@ a,button{-webkit-tap-highlight-color:#73a3ff33}
   outline:3px solid #a8c7ff;
   outline-offset:6px;
 }
-.showcase-tabs button.action-button{padding:10px 13px;font-size:12px}
+.more-projects.action-button{display:flex;width:fit-content}
+.showcase-tabs button.action-button{
+  padding:10px 13px;font-size:12px;
+  background:#1754e8;border-color:#477dff;color:#fff;
+}
 .showcase-tabs button.action-button[aria-pressed=true]{
   background:#10368f;
   border-color:#b8d0ff;
