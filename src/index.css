@@ -73,50 +73,6 @@ a,button{-webkit-tap-highlight-color:#73a3ff33}
   .primary-button:hover,.primary-button:active,.header-contact:active,.more-projects:active,.showcase-tabs button:active,.concept-preview:hover,.portfolio-link:hover svg,.project-cta:hover svg,.primary-button:hover svg{transform:none}
 }
 
-/* Hero quote button: vivid blue and a brief hover swing. */
-.hero-actions .primary-button{
-  background:#1754e8;
-  border-color:#477dff;
-  box-shadow:0 6px 26px #1754e840;
-  transform-origin:50% 75%;
-}
-.hero-actions .primary-button:focus-visible{
-  background:#1246c7;
-  outline:3px solid #a8c7ff;
-  outline-offset:6px;
-}
-@keyframes quote-button-swing{
-  0%{transform:translateY(0) rotate(0deg)}
-  25%{transform:translateY(-2px) rotate(-2deg)}
-  50%{transform:translateY(-2px) rotate(1.5deg)}
-  75%{transform:translateY(-2px) rotate(-.75deg)}
-  100%{transform:translateY(-2px) rotate(0deg)}
-}
-@media(hover:hover) and (pointer:fine){
-  .hero-actions .primary-button:hover{
-    background:#1246c7;
-    border-color:#82a6ff;
-    box-shadow:0 10px 32px #1754e866;
-    transform:translateY(-2px);
-  }
-}
-@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  .hero-actions .primary-button:hover{
-    animation:quote-button-swing .65s ease-in-out 1;
-  }
-}
-.hero-actions .primary-button:active{
-  animation:none;
-  transform:scale(.98);
-}
-@media(prefers-reduced-motion:reduce){
-  .hero-actions .primary-button:hover,
-  .hero-actions .primary-button:active{
-    animation:none;
-    transform:none;
-  }
-}
-
 /* Refined frames for the site concept showcase and gallery. */
 .hero-showcase{
   border:1px solid transparent;
@@ -163,4 +119,84 @@ a,button{-webkit-tap-highlight-color:#73a3ff33}
 }
 @media(forced-colors:active){
   .hero-showcase,.concept-preview,.concept-preview:hover{border-color:CanvasText}
+}
+
+/* Shared action buttons, including gallery and header controls. */
+.action-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  max-width:100%;
+  padding:15px 20px;
+  border:1px solid #477dff;
+  border-radius:8px;
+  background:#1754e8;
+  color:#fff;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.5;
+  text-align:center;
+  text-decoration:none;
+  box-shadow:0 6px 26px #1754e840;
+  transform-origin:50% 75%;
+  transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.action-button:focus-visible{
+  background:#1246c7;
+  outline:3px solid #a8c7ff;
+  outline-offset:6px;
+}
+.showcase-tabs button.action-button{padding:10px 13px;font-size:12px}
+.showcase-tabs button.action-button[aria-pressed=true]{
+  background:#10368f;
+  border-color:#b8d0ff;
+  color:#fff;
+  box-shadow:inset 0 0 0 1px #b8d0ff66,0 4px 16px #1754e833;
+}
+@keyframes quote-button-swing{
+  0%{transform:translateY(0) rotate(0deg)}
+  25%{transform:translateY(-2px) rotate(-2deg)}
+  50%{transform:translateY(-2px) rotate(1.5deg)}
+  75%{transform:translateY(-2px) rotate(-.75deg)}
+  100%{transform:translateY(-2px) rotate(0deg)}
+}
+@media(hover:hover) and (pointer:fine){
+  .action-button:hover,.showcase-tabs button.action-button:hover{
+    background:#1246c7;
+    color:#fff;
+    border-color:#82a6ff;
+    box-shadow:0 10px 32px #1754e866;
+    transform:translateY(-2px);
+  }
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .action-button:hover{animation:quote-button-swing .65s ease-in-out 1}
+}
+.action-button:active{animation:none;transform:scale(.98)}
+@media(max-width:380px){
+  .action-button{padding:13px 16px}
+}
+
+/* Only the page content crossfades; the header remains stable. */
+:root{view-transition-name:none}
+#conteudo{view-transition-name:page-content}
+::view-transition-group(page-content){animation-duration:320ms}
+::view-transition-old(page-content){animation:page-leave 140ms ease-out both}
+::view-transition-new(page-content){animation:page-arrive 280ms 60ms cubic-bezier(.2,.7,.2,1) both}
+@keyframes page-leave{to{opacity:0;transform:translateY(-6px)}}
+@keyframes page-arrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.route-page{animation:page-arrive 280ms cubic-bezier(.2,.7,.2,1) both}
+@supports selector(:active-view-transition){
+  :root:active-view-transition .route-page{animation:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .action-button{transition:none}
+  .action-button:hover,.action-button:active,.showcase-tabs button.action-button:hover{
+    animation:none;transform:none;
+  }
+  .route-page{animation:none}
+  ::view-transition-group(page-content),
+  ::view-transition-old(page-content),
+  ::view-transition-new(page-content){animation:none}
 }

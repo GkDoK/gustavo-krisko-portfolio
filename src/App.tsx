@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 
 const whatsapp = 'https://wa.me/5511943726269?text=' + encodeURIComponent('Olá, SorTech! Gostaria de conversar sobre um site para meu negócio.')
 
 function ContactLink({ className = '', children }: { className?: string; children: React.ReactNode }) {
-  return <a className={className} href={whatsapp} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false" /></a>
+  return <a className={`action-button ${className}`} href={whatsapp} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false" /></a>
 }
 
 function Header({ isAboutPage }: { isAboutPage: boolean }) {
@@ -27,7 +28,7 @@ function Hero() {
     </div>
     <div className="hero-showcase">
       <div className="showcase-label"><span>UM SITE. MUITAS POSSIBILIDADES.</span><span aria-hidden="true">ST / 01</span></div>
-      <div className="showcase-tabs" role="group" aria-label="Escolha um conceito para visualizar">{concepts.slice(0, 3).map(concept => <button key={concept.id} type="button" aria-pressed={selected === concept.id} onClick={() => setSelected(concept.id)}>{concept.category}</button>)}</div>
+      <div className="showcase-tabs" role="group" aria-label="Escolha um conceito para visualizar">{concepts.slice(0, 3).map(concept => <button className="action-button" key={concept.id} type="button" aria-pressed={selected === concept.id} onClick={() => setSelected(concept.id)}>{concept.category}</button>)}</div>
       <a className="showcase-image" href={`/projects/concepts/${preview.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${preview.category.toLowerCase()}, abre em nova aba`}><img key={preview.id} className="preview-image" src={`/projects/concepts/${preview.id}.png`} alt={preview.alt} width="1536" height="1024" fetchPriority="high" decoding="async"/><span className="showcase-open"><ArrowUpRight size={20} aria-hidden="true"/></span></a>
       <div className="showcase-caption"><div><strong>{preview.name}</strong><p>{preview.description}</p></div><span>CONCEITO<br/>DEMONSTRATIVO</span></div>
     </div>
@@ -60,7 +61,7 @@ function Projects() {
         <div className="concept-body"><span className="project-number" aria-hidden="true">0{index + 1}</span><div className="concept-meta"><span>{concept.category}</span><span>CONCEITO VISUAL</span></div><h3>{concept.name}</h3><p>{concept.description}</p><ContactLink className="project-cta">Quero uma proposta nesse estilo</ContactLink></div>
       </article>)}
     </div>
-    <button className="more-projects" type="button" aria-expanded={showAll} aria-controls="concept-gallery" onClick={() => { setShowAll(!showAll); if (showAll) requestAnimationFrame(() => document.getElementById('projetos')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })) }}>{showAll ? 'Mostrar menos ideias' : 'Ver mais 3 ideias de sites'} <ArrowDown size={16} aria-hidden="true"/></button>
+    <button className="more-projects action-button" type="button" aria-expanded={showAll} aria-controls="concept-gallery" onClick={() => { setShowAll(!showAll); if (showAll) requestAnimationFrame(() => document.getElementById('projetos')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })) }}>{showAll ? 'Mostrar menos ideias' : 'Ver mais 3 ideias de sites'} <ArrowDown size={16} aria-hidden="true"/></button>
   </section>
 }
 function Services() {
@@ -149,26 +150,53 @@ function AboutPage() {
 export default function App() {
   const [hash, setHash] = useState(() => window.location.hash)
   const isAboutPage = ['#/quem-somos', '#/me-conheca'].includes(hash)
+  const previousPage = useRef(isAboutPage)
   useEffect(() => {
-    const onHashChange = () => setHash(window.location.hash)
-    window.addEventListener('hashchange', onHashChange)
-    return () => window.removeEventListener('hashchange', onHashChange)
-  }, [])
-  useEffect(() => {
-    document.title = isAboutPage ? 'Quem somos | SorTech Solutions' : 'SorTech Solutions | Criação de sites'
-    // Wait for React to mount the destination before scrolling to an anchor.
-    const frame = requestAnimationFrame(() => {
-      if (isAboutPage) {
-        window.scrollTo({ top: 0, behavior: 'instant' })
-        document.getElementById('meet-title')?.focus({ preventScroll: true })
-      } else if (hash) {
-        document.getElementById(hash.slice(1))?.scrollIntoView({
-          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-          block: 'start',
-        })
+    let activeTransition: { finished: Promise<void>; skipTransition: () => void } | undefined
+    const onHashChange = () => {
+      const nextHash = window.location.hash
+      const nextIsAboutPage = ['#/quem-somos', '#/me-conheca'].includes(nextHash)
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      const transitionDocument = document as Document & {
+        startViewTransition?: (update: () => void) => {
+          finished: Promise<void>
+          skipTransition: () => void
+        }
       }
-    })
-    return () => cancelAnimationFrame(frame)
+      activeTransition?.skipTransition()
+      if (nextIsAboutPage !== isAboutPage && !reduceMotion && transitionDocument.startViewTransition) {
+        activeTransition = transitionDocument.startViewTransition(() => {
+          flushSync(() => setHash(nextHash))
+        })
+        // Interrupted transitions still commit the destination.
+        activeTransition.finished.catch(() => {})
+      } else {
+        setHash(nextHash)
+      }
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => {
+      window.removeEventListener('hashchange', onHashChange)
+    }
+  }, [isAboutPage])
+  useLayoutEffect(() => {
+    document.title = isAboutPage ? 'Quem somos | SorTech Solutions' : 'SorTech Solutions | Criação de sites'
+    const pageChanged = previousPage.current !== isAboutPage
+    previousPage.current = isAboutPage
+    // Position the destination before the browser captures the transition snapshot.
+    if (isAboutPage) {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+      document.getElementById('meet-title')?.focus({ preventScroll: true })
+    } else if (hash) {
+      document.getElementById(hash.slice(1))?.scrollIntoView({
+        behavior: pageChanged || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+        block: 'start',
+      })
+      if (pageChanged) document.getElementById('conteudo')?.focus({ preventScroll: true })
+    } else if (pageChanged) {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+      document.getElementById('conteudo')?.focus({ preventScroll: true })
+    }
   }, [hash, isAboutPage])
   useEffect(() => {
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -202,5 +230,5 @@ export default function App() {
       preference.removeEventListener('change', onPreferenceChange)
     }
   }, [isAboutPage])
-  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header isAboutPage={isAboutPage}/><main id="conteudo" tabIndex={-1}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><p>SorTech Solutions · Criação de sites</p><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
+  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header isAboutPage={isAboutPage}/><main id="conteudo" tabIndex={-1}><div className="route-page" key={isAboutPage ? 'about' : 'home'}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</div></main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><p>SorTech Solutions · Criação de sites</p><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
 }
