@@ -72,3 +72,47 @@ a,button{-webkit-tap-highlight-color:#73a3ff33}
   .preview-image,.concept-added{animation:none}
   .primary-button:hover,.primary-button:active,.header-contact:active,.more-projects:active,.showcase-tabs button:active,.concept-preview:hover,.portfolio-link:hover svg,.project-cta:hover svg,.primary-button:hover svg{transform:none}
 }
+
+/* Hero quote button: vivid blue and a brief hover swing. */
+.hero-actions .primary-button{
+  background:#1754e8;
+  border-color:#477dff;
+  box-shadow:0 6px 26px #1754e840;
+  transform-origin:50% 75%;
+}
+.hero-actions .primary-button:focus-visible{
+  background:#1246c7;
+  outline:3px solid #a8c7ff;
+  outline-offset:6px;
+}
+@keyframes quote-button-swing{
+  0%{transform:translateY(0) rotate(0deg)}
+  25%{transform:translateY(-2px) rotate(-2deg)}
+  50%{transform:translateY(-2px) rotate(1.5deg)}
+  75%{transform:translateY(-2px) rotate(-.75deg)}
+  100%{transform:translateY(-2px) rotate(0deg)}
+}
+@media(hover:hover) and (pointer:fine){
+  .hero-actions .primary-button:hover{
+    background:#1246c7;
+    border-color:#82a6ff;
+    box-shadow:0 10px 32px #1754e866;
+    transform:translateY(-2px);
+  }
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .hero-actions .primary-button:hover{
+    animation:quote-button-swing .65s ease-in-out 1;
+  }
+}
+.hero-actions .primary-button:active{
+  animation:none;
+  transform:scale(.98);
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-actions .primary-button:hover,
+  .hero-actions .primary-button:active{
+    animation:none;
+    transform:none;
+  }
+}
