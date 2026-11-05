@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 
-const whatsapp = 'https://wa.me/5511943726269?text=' + encodeURIComponent('Olá, SorTech! Gostaria de conversar sobre um site para meu negócio.')
+const whatsapp = 'https://wa.me/5511943726269?text=' + encodeURIComponent('Olá, KRISKO! Gostaria de conversar sobre um site para meu negócio.')
 
 function ContactLink({ className = '', children }: { className?: string; children: React.ReactNode }) {
   return <a className={`action-button ${className}`} href={whatsapp} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false" /></a>
@@ -10,7 +10,7 @@ function ContactLink({ className = '', children }: { className?: string; childre
 
 function Header({ isAboutPage }: { isAboutPage: boolean }) {
   return <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-7 lg:px-12">
-    <a href="./#inicio" className="brand" aria-label="SorTech Solutions, início"><img className="brand-logo" src="/images/sortech-logo.webp" alt="" width="569" height="640" decoding="async" /><span className="brand-name">SorTech<small>Solutions</small></span></a>
+    <a href="./#inicio" className="brand" aria-label="KRISKO, início"><img className="brand-logo" src="/images/krisko-monogram.svg" alt="" width="64" height="64" decoding="async" /><span className="brand-name">KRISKO<small>TECNOLOGIA & DESIGN</small></span></a>
     <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#projetos">Ideias de sites</a><a className="nav-link" href="#/quem-somos" aria-current={isAboutPage ? 'page' : undefined}>Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
   </header>
 }
@@ -20,14 +20,14 @@ function Hero() {
   const preview = concepts.find(concept => concept.id === selected)!
   return <section aria-labelledby="hero-title" className="hero mx-auto max-w-7xl px-6 lg:px-12">
     <div className="hero-copy">
-      <p className="eyebrow"><span className="status-dot"/> SITES PARA EMPRESAS E COMÉRCIOS</p>
-      <h1 id="hero-title">Seu negócio tem<br/>personalidade.<br/><span>Seu site também.</span></h1>
+      <p className="eyebrow"><span className="status-dot"/> TECNOLOGIA COM IDENTIDADE</p>
+      <h1 id="hero-title">Ideias que conectam.<br/><span>Presença que<br/>transforma.</span></h1>
       <p className="description">Sites para empresas e comércios, com a identidade do seu negócio, seus serviços em destaque e um caminho simples para o cliente entrar em contato.</p>
       <div className="hero-actions"><ContactLink className="primary-button">Pedir meu orçamento</ContactLink><a className="portfolio-link" href="#projetos">Explorar ideias <ArrowDown className="ui-icon" size={18} aria-hidden="true" /></a></div>
       <p className="service-note">Atendimento próximo. Proposta pensada para o seu negócio.</p>
     </div>
     <div className="hero-showcase">
-      <div className="showcase-label"><span>UM SITE. MUITAS POSSIBILIDADES.</span><span aria-hidden="true">ST / 01</span></div>
+      <div className="showcase-label"><span>UM SITE. MUITAS POSSIBILIDADES.</span><span aria-hidden="true">K / 01</span></div>
       <div className="showcase-tabs" role="group" aria-label="Escolha um conceito para visualizar">{concepts.slice(0, 3).map(concept => <button className="action-button" key={concept.id} type="button" aria-pressed={selected === concept.id} onClick={() => setSelected(concept.id)}>{concept.category}</button>)}</div>
       <a className="showcase-image" href={`/projects/concepts/${preview.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${preview.category.toLowerCase()}, abre em nova aba`}><img key={preview.id} className="preview-image" src={`/projects/concepts/${preview.id}.png`} alt={preview.alt} width="1536" height="1024" fetchPriority="high" decoding="async"/><span className="showcase-open"><ArrowUpRight size={20} aria-hidden="true"/></span></a>
       <div className="showcase-caption"><div><strong>{preview.name}</strong><p>{preview.description}</p></div><span>CONCEITO<br/>DEMONSTRATIVO</span></div>
@@ -105,13 +105,13 @@ function Process() {
 function About() {
   return <section id="sobre" aria-labelledby="about-title" className="about mx-auto max-w-7xl px-6 lg:px-12">
     <div className="about-heading"><p className="eyebrow">CONTATO DIRETO, DO COMEÇO À ENTREGA</p><h2 id="about-title">Você sabe quem<br/>cuida do seu site<span>.</span></h2></div>
-    <div className="about-copy"><p>Conheça a SorTech Solutions.</p><p>Criamos sites para empresas e comércios, com atenção à identidade de cada negócio e à experiência de seus clientes.</p><a className="portfolio-link" href="#/quem-somos">Quem somos <ArrowUpRight size={18} aria-hidden="true"/></a></div>
+    <div className="about-copy"><p>Conheça a KRISKO.</p><p>Criamos sites para empresas e comércios, com atenção à identidade de cada negócio e à experiência de seus clientes.</p><a className="portfolio-link" href="#/quem-somos">Quem somos <ArrowUpRight size={18} aria-hidden="true"/></a></div>
   </section>
 }
 function Contact() {
   return <section id="contato" aria-labelledby="contact-title" className="contact mx-auto max-w-7xl px-6 lg:px-12">
     <div className="contact-box">
-      <div className="contact-copy"><p className="eyebrow">VAMOS CONVERSAR</p><h2 id="contact-title">Conte sobre<br/>o seu negócio<span>.</span></h2><p>Para começar, envie o nome do seu negócio, o que você oferece e o que gostaria de mostrar no site. A SorTech ajuda você a pensar no próximo passo.</p></div>
+      <div className="contact-copy"><p className="eyebrow">VAMOS CONVERSAR</p><h2 id="contact-title">Conte sobre<br/>o seu negócio<span>.</span></h2><p>Para começar, envie o nome do seu negócio, o que você oferece e o que gostaria de mostrar no site. A KRISKO ajuda você a pensar no próximo passo.</p></div>
       <div className="contact-actions"><ContactLink className="primary-button">Chamar no WhatsApp</ContactLink><p className="contact-phone">(11) 94372-6269</p><div className="contact-email"><span>Prefere conversar por e-mail?</span><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></div><p className="contact-location">Atendimento em todo o estado de São Paulo.</p></div>
     </div>
   </section>
@@ -122,9 +122,9 @@ function AboutPage() {
       <a className="meet-back" href="./#inicio"><ArrowDown className="back-icon" size={16} aria-hidden="true"/> Voltar ao início</a>
       <div className="meet-copy company-intro">
         <p className="eyebrow">QUEM SOMOS</p>
-        <h1 id="meet-title" tabIndex={-1}>SorTech<span>.</span><small className="company-subtitle">Solutions</small></h1>
+        <h1 id="meet-title" tabIndex={-1}>KRISKO<span>.</span><small className="company-subtitle">Tecnologia que conecta ideias a resultados</small></h1>
         <p className="meet-intro">Seu negócio tem uma história. Criamos sites para ajudar você a contá-la.</p>
-        <p>A SorTech Solutions é a marca de serviços digitais criada por Gustavo Krisko para atender empresas e comércios que querem apresentar seu trabalho na internet com clareza e personalidade.</p>
+        <p>A KRISKO é a marca de tecnologia e serviços digitais criada por Gustavo Krisko para atender empresas e comércios que querem apresentar seu trabalho na internet com clareza e personalidade.</p>
         <p>Nosso foco é desenvolver sites e páginas de divulgação que valorizem a identidade de cada negócio, destaquem seus serviços e facilitem o contato com seus clientes.</p>
       </div>
       <div className="meet-highlights">
@@ -134,9 +134,9 @@ function AboutPage() {
       </div>
       <section className="meet-grid founder-section" aria-labelledby="founder-title">
         <div className="meet-copy">
-          <p className="eyebrow">QUEM ESTÁ POR TRÁS DA SORTECH</p>
+          <p className="eyebrow">QUEM ESTÁ POR TRÁS DA KRISKO</p>
           <h2 id="founder-title">Prazer, Gustavo Krisko<span>.</span></h2>
-          <p>Sou estudante de Engenharia de Software na Universidade São Judas e o responsável pela SorTech Solutions. Uno meus estudos à prática para desenvolver sites com identidade, informações claras e navegação simples.</p>
+          <p>Sou estudante de Engenharia de Software na Universidade São Judas e o responsável pela KRISKO. Uno meus estudos à prática para desenvolver sites com identidade, informações claras e navegação simples.</p>
         </div>
         <figure className="meet-photo">
           <img src="/images/gustavo-aws-summit.jpg" width="1152" height="1536" alt="Gustavo Krisko ao lado do letreiro do AWS Summit, em São Paulo." loading="lazy" decoding="async" />
@@ -180,7 +180,7 @@ export default function App() {
     }
   }, [isAboutPage])
   useLayoutEffect(() => {
-    document.title = isAboutPage ? 'Quem somos | SorTech Solutions' : 'SorTech Solutions | Criação de sites'
+    document.title = isAboutPage ? 'Quem somos | KRISKO' : 'KRISKO | Criação de sites'
     const pageChanged = previousPage.current !== isAboutPage
     previousPage.current = isAboutPage
     // Position the destination before the browser captures the transition snapshot.
@@ -230,5 +230,5 @@ export default function App() {
       preference.removeEventListener('change', onPreferenceChange)
     }
   }, [isAboutPage])
-  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header isAboutPage={isAboutPage}/><main id="conteudo" tabIndex={-1}><div className="route-page" key={isAboutPage ? 'about' : 'home'}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</div></main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><p>SorTech Solutions · Criação de sites</p><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
+  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header isAboutPage={isAboutPage}/><main id="conteudo" tabIndex={-1}><div className="route-page" key={isAboutPage ? 'about' : 'home'}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</div></main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><a className="footer-brand" href="./#inicio" aria-label="KRISKO, início"><img src="/images/krisko-monogram.svg" alt="" width="32" height="32"/><span>KRISKO<small>Tecnologia que conecta ideias a resultados.</small></span></a><a className="social-link" href="https://www.instagram.com/kriskoinc/" target="_blank" rel="noopener noreferrer">@kriskoinc <ArrowUpRight size={14} aria-hidden="true"/></a><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
 }
