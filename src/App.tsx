@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 
-const whatsapp = 'https://wa.me/5511943726269?text=' + encodeURIComponent('Olá, KRISKO! Gostaria de conversar sobre um site para meu negócio.')
+const whatsapp = 'https://wa.me/5511943726269?text=' + encodeURIComponent('Olá, KRISKO! Gostaria de conversar sobre automações, presença digital ou um site para minha empresa.')
 
 function ContactLink({ className = '', children }: { className?: string; children: React.ReactNode }) {
   return <a className={`action-button ${className}`} href={whatsapp} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false" /></a>
@@ -11,7 +11,7 @@ function ContactLink({ className = '', children }: { className?: string; childre
 function Header({ isAboutPage }: { isAboutPage: boolean }) {
   return <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-7 lg:px-12">
     <a href="./#inicio" className="brand" aria-label="KRISKO, início"><img className="brand-logo" src="/images/krisko-monogram.svg" alt="" width="64" height="64" decoding="async" /><span className="brand-name">KRISKO<small>TECNOLOGIA</small></span></a>
-    <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#projetos">Ideias de sites</a><a className="nav-link" href="#/quem-somos" aria-current={isAboutPage ? 'page' : undefined}>Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
+    <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#servicos">Soluções</a><a className="nav-link" href="#/quem-somos" aria-current={isAboutPage ? 'page' : undefined}>Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
   </header>
 }
 
@@ -20,9 +20,9 @@ function Hero() {
   const preview = concepts.find(concept => concept.id === selected)!
   return <section aria-labelledby="hero-title" className="hero mx-auto max-w-7xl px-6 lg:px-12">
     <div className="hero-copy">
-      <p className="eyebrow"><span className="status-dot"/> TECNOLOGIA COM IDENTIDADE</p>
-      <h1 id="hero-title">Ideias que conectam.<span>Presença que transforma.</span></h1>
-      <p className="description">Sites para empresas e comércios, com a identidade do seu negócio, seus serviços em destaque e um caminho simples para o cliente entrar em contato.</p>
+      <p className="eyebrow"><span className="status-dot"/> AUTOMAÇÕES E PRESENÇA DIGITAL</p>
+      <h1 id="hero-title">Automatize rotinas.<span>Amplie sua presença.</span></h1>
+      <p className="description">Automações para simplificar processos, soluções para ampliar sua presença nas mídias digitais e sites responsivos para conectar sua empresa a novos clientes.</p>
       <div className="hero-actions"><ContactLink className="primary-button">Pedir meu orçamento</ContactLink><a className="portfolio-link" href="#projetos">Explorar ideias <ArrowDown className="ui-icon" size={18} aria-hidden="true" /></a></div>
       <p className="service-note">Atendimento próximo. Proposta pensada para o seu negócio.</p>
     </div>
@@ -32,7 +32,7 @@ function Hero() {
       <a className="showcase-image" href={`/projects/concepts/${preview.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${preview.category.toLowerCase()}, abre em nova aba`}><img key={preview.id} className="preview-image" src={`/projects/concepts/${preview.id}.png`} alt={preview.alt} width="1536" height="1024" fetchPriority="high" decoding="async"/><span className="showcase-open"><ArrowUpRight size={20} aria-hidden="true"/></span></a>
       <div className="showcase-caption"><div><strong>{preview.name}</strong><p>{preview.description}</p></div><span>CONCEITO<br/>DEMONSTRATIVO</span></div>
     </div>
-    <div className="benefit-line"><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Identidade para o seu negócio</span><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Clareza em cada tela</span><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Contato a um clique</span></div>
+    <div className="benefit-line"><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Menos tarefas repetitivas</span><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Mais presença digital</span><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Sites em qualquer tela</span></div>
   </section>
 }
 const concepts = [
@@ -67,35 +67,45 @@ function Projects() {
 function Services() {
   return <section id="servicos" aria-labelledby="services-title" className="services mx-auto max-w-7xl px-6 lg:px-12">
     <div className="projects-heading">
-      <div><p className="eyebrow">COMO PODEMOS AJUDAR</p><h2 id="services-title">O site certo para<br/>o seu negócio<span>.</span></h2></div>
-      <p>Da apresentação da sua empresa à divulgação de um serviço, cada projeto começa pelo que você precisa comunicar.</p>
+      <div><p className="eyebrow">SOLUÇÕES PARA SUA EMPRESA</p><h2 id="services-title">Mais eficiência.<br/>Mais presença digital<span>.</span></h2></div>
+      <p>Da rotina interna ao contato com o cliente, conectamos tecnologia aos objetivos do seu negócio.</p>
     </div>
     <div className="services-grid">
       <article className="service-card">
-        <span className="service-index">01 / APRESENTE SEU NEGÓCIO</span>
-        <h3>Sites para empresas e comércios</h3>
-        <p>Seu endereço na internet, com a identidade da sua empresa e as informações que ajudam o cliente a escolher você.</p>
-        <ul><li>Apresentação da empresa e dos serviços</li><li>Espaço para fotos, diferenciais e localização</li><li>Acesso fácil aos seus canais de contato</li></ul>
-        
+        <span className="service-index">01 / SIMPLIFIQUE A OPERAÇÃO</span>
+        <h3>Automações empresariais</h3>
+        <p>Transforme tarefas repetitivas em fluxos organizados para reduzir trabalho manual e facilitar o acompanhamento da sua operação.</p>
+        <ul><li>Mapeamento de rotinas e oportunidades de automação</li><li>Integração entre formulários, planilhas e ferramentas, conforme a viabilidade</li><li>Organização de contatos, avisos e etapas de atendimento</li></ul>
       </article>
       <article className="service-card">
-        <span className="service-index">02 / DESTAQUE UMA OFERTA</span>
+        <span className="service-index">02 / AMPLIE SUA PRESENÇA</span>
+        <h3>Mídias e presença digital</h3>
+        <p>Fortaleça a forma como sua empresa se apresenta nos canais digitais e facilite o caminho entre conhecer sua marca e entrar em contato.</p>
+        <ul><li>Organização de informações em canais comerciais e corporativos</li><li>Conexão entre mídias digitais, páginas de divulgação e contatos</li><li>Estrutura digital para apresentar serviços, produtos e campanhas</li></ul>
+      </article>
+      <article className="service-card">
+        <span className="service-index">03 / CONECTE SUA EMPRESA</span>
+        <h3>Sites responsivos</h3>
+        <p>Seu endereço na internet, com a identidade da sua empresa e uma experiência que se adapta a celulares, tablets e computadores.</p>
+        <ul><li>Apresentação da empresa, serviços e diferenciais</li><li>Espaço para fotos, localização e informações comerciais</li><li>Navegação clara e acesso fácil ao WhatsApp e demais contatos</li></ul>
+      </article>
+      <article className="service-card">
+        <span className="service-index">04 / DESTAQUE UMA OFERTA</span>
         <h3>Páginas de divulgação</h3>
         <p>Uma página focada em apresentar um serviço, produto ou campanha e orientar o visitante para o próximo passo.</p>
         <ul><li>Conteúdo voltado a uma oferta específica</li><li>Benefícios e informações em uma sequência clara</li><li>Botão de contato ou pedido de orçamento</li></ul>
-        
       </article>
     </div>
-    <div className="quote-strip"><div><h3>Seu projeto, seu orçamento.</h3><p>O valor é definido conforme o conteúdo, as páginas e os recursos que seu site precisa. Conte sua ideia e preparamos uma proposta para você.</p></div><ContactLink className="primary-button">Solicitar orçamento</ContactLink></div>
+    <div className="quote-strip"><div><h3>A solução começa pelo seu objetivo.</h3><p>O escopo, o prazo e o investimento são definidos conforme os processos, canais e recursos envolvidos. Conte seu desafio e preparamos uma proposta para você.</p></div><ContactLink className="primary-button">Conversar sobre meu projeto</ContactLink></div>
   </section>
 }
 
 function Process() {
   const steps = [
-    { number: '01', title: 'Conversa inicial', text: 'Você conta sua ideia. Entendemos seu negócio e o que seu cliente precisa encontrar no site.' },
+    { number: '01', title: 'Conversa inicial', text: 'Você conta seus objetivos. Entendemos suas rotinas, seus canais digitais e o que sua empresa precisa melhorar.' },
     { number: '02', title: 'Orçamento personalizado', text: 'Você recebe o escopo, o valor e o prazo previsto. Combinamos tudo antes de começar.' },
-    { number: '03', title: 'Desenvolvimento', text: 'Desenvolvemos o site e apresentamos o projeto para você participar dos ajustes combinados.' },
-    { number: '04', title: 'Entrega', text: 'Após sua aprovação, preparamos a entrega e os próximos passos para publicação, conforme a proposta.' },
+    { number: '03', title: 'Desenvolvimento', text: 'Desenvolvemos a solução e apresentamos o projeto para você participar dos testes e ajustes combinados.' },
+    { number: '04', title: 'Entrega', text: 'Após sua aprovação, preparamos a entrega, a implantação e as orientações de uso, conforme a proposta.' },
   ]
   return <section id="como-funciona" aria-labelledby="process-title" className="process mx-auto max-w-7xl px-6 lg:px-12">
     <div className="projects-heading"><div><p className="eyebrow">DA PRIMEIRA CONVERSA À ENTREGA</p><h2 id="process-title">Como funciona<span>.</span></h2></div><p>Um processo claro, com cada etapa alinhada com você.</p></div>
@@ -104,14 +114,14 @@ function Process() {
 }
 function About() {
   return <section id="sobre" aria-labelledby="about-title" className="about mx-auto max-w-7xl px-6 lg:px-12">
-    <div className="about-heading"><p className="eyebrow">CONTATO DIRETO, DO COMEÇO À ENTREGA</p><h2 id="about-title">Você sabe quem<br/>cuida do seu site<span>.</span></h2></div>
-    <div className="about-copy"><p>Conheça a KRISKO.</p><p>Criamos sites para empresas e comércios, com atenção à identidade de cada negócio e à experiência de seus clientes.</p><a className="portfolio-link" href="#/quem-somos">Quem somos <ArrowUpRight size={18} aria-hidden="true"/></a></div>
+    <div className="about-heading"><p className="eyebrow">CONTATO DIRETO, DO COMEÇO À ENTREGA</p><h2 id="about-title">Você sabe quem<br/>cuida do seu projeto<span>.</span></h2></div>
+    <div className="about-copy"><p>Conheça a KRISKO.</p><p>Somos uma empresa de tecnologia voltada a automações, ampliação da presença digital e criação de sites responsivos para empresas e comércios.</p><a className="portfolio-link" href="#/quem-somos">Quem somos <ArrowUpRight size={18} aria-hidden="true"/></a></div>
   </section>
 }
 function Contact() {
   return <section id="contato" aria-labelledby="contact-title" className="contact mx-auto max-w-7xl px-6 lg:px-12">
     <div className="contact-box">
-      <div className="contact-copy"><p className="eyebrow">VAMOS CONVERSAR</p><h2 id="contact-title">Conte sobre<br/>o seu negócio<span>.</span></h2><p>Para começar, envie o nome do seu negócio, o que você oferece e o que gostaria de mostrar no site. A KRISKO ajuda você a pensar no próximo passo.</p></div>
+      <div className="contact-copy"><p className="eyebrow">VAMOS CONVERSAR</p><h2 id="contact-title">Conte sobre<br/>o seu negócio<span>.</span></h2><p>Conte o que sua empresa faz e o que você quer melhorar: automatizar uma rotina, fortalecer seus canais digitais ou criar um site responsivo. A KRISKO ajuda a definir os próximos passos.</p></div>
       <div className="contact-actions"><ContactLink className="primary-button">Chamar no WhatsApp</ContactLink><p className="contact-phone">(11) 94372-6269</p><div className="contact-email"><span>Prefere conversar por e-mail?</span><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></div><p className="contact-location">Atendimento em todo o estado de São Paulo.</p></div>
     </div>
   </section>
@@ -123,20 +133,20 @@ function AboutPage() {
       <div className="meet-copy company-intro">
         <p className="eyebrow">QUEM SOMOS</p>
         <h1 id="meet-title" tabIndex={-1}>KRISKO<span>.</span><small className="company-subtitle">Tecnologia que conecta ideias a resultados</small></h1>
-        <p className="meet-intro">Seu negócio tem uma história. Criamos sites para ajudar você a contá-la.</p>
-        <p>A KRISKO é a marca de tecnologia e serviços digitais criada por Gustavo Krisko para atender empresas e comércios que querem apresentar seu trabalho na internet com clareza e personalidade.</p>
-        <p>Nosso foco é desenvolver sites e páginas de divulgação que valorizem a identidade de cada negócio, destaquem seus serviços e facilitem o contato com seus clientes.</p>
+        <p className="meet-intro">Tecnologia para simplificar a operação e ampliar a presença da sua empresa.</p>
+        <p>A KRISKO é uma empresa de tecnologia criada por Gustavo Krisko para ajudar empresas e comércios a conectar processos, comunicação e presença digital.</p>
+        <p>Atuamos em três frentes que se complementam: automações de rotinas empresariais, ampliação da presença em mídias digitais comerciais e corporativas, e criação de sites responsivos. Cada projeto parte de uma necessidade concreta do negócio, com escopo e objetivos alinhados antes do desenvolvimento.</p>
       </div>
       <div className="meet-highlights">
-        <article><span className="service-index">01 / IDENTIDADE</span><h2>O seu negócio em primeiro lugar</h2><p>Cada projeto começa pela compreensão do que você faz, do público que atende e do que precisa comunicar.</p></article>
-        <article><span className="service-index">02 / CLAREZA</span><h2>Uma experiência simples</h2><p>Organizamos conteúdo, visual e navegação para que o visitante encontre as informações e saiba como entrar em contato.</p></article>
+        <article><span className="service-index">01 / IDENTIDADE</span><h2>O seu negócio em primeiro lugar</h2><p>Cada projeto começa pela compreensão da sua operação, do público que você atende e dos objetivos da sua empresa.</p></article>
+        <article><span className="service-index">02 / CLAREZA</span><h2>Uma experiência simples</h2><p>Conectamos processos e canais digitais para facilitar a rotina da empresa e o caminho do cliente até o contato.</p></article>
         <article><span className="service-index">03 / PROXIMIDADE</span><h2>Conversa em cada etapa</h2><p>Alinhamos o escopo, o orçamento e as etapas do desenvolvimento com você, de acordo com as necessidades do projeto.</p></article>
       </div>
       <section className="meet-grid founder-section" aria-labelledby="founder-title">
         <div className="meet-copy">
           <p className="eyebrow">QUEM ESTÁ POR TRÁS DA KRISKO</p>
           <h2 id="founder-title">Prazer, Gustavo Krisko<span>.</span></h2>
-          <p>Sou estudante de Engenharia de Software na Universidade São Judas e o responsável pela KRISKO. Uno meus estudos à prática para desenvolver sites com identidade, informações claras e navegação simples.</p>
+          <p>Sou estudante de Engenharia de Software na Universidade São Judas e o responsável pela KRISKO. Uno meus estudos à prática para desenvolver soluções de automação, fortalecer a presença digital de empresas e criar sites responsivos.</p>
         </div>
         <figure className="meet-photo">
           <img src="/images/gustavo-aws-summit.jpg" width="1152" height="1536" alt="Gustavo Krisko ao lado do letreiro do AWS Summit, em São Paulo." loading="lazy" decoding="async" />
@@ -180,7 +190,7 @@ export default function App() {
     }
   }, [isAboutPage])
   useLayoutEffect(() => {
-    document.title = isAboutPage ? 'Quem somos | KRISKO' : 'KRISKO | Criação de sites'
+    document.title = isAboutPage ? 'Quem somos | KRISKO' : 'KRISKO | Automações, presença digital e sites'
     const pageChanged = previousPage.current !== isAboutPage
     previousPage.current = isAboutPage
     // Position the destination before the browser captures the transition snapshot.
@@ -230,5 +240,5 @@ export default function App() {
       preference.removeEventListener('change', onPreferenceChange)
     }
   }, [isAboutPage])
-  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header isAboutPage={isAboutPage}/><main id="conteudo" tabIndex={-1}><div className="route-page" key={isAboutPage ? 'about' : 'home'}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Projects/><Services/><Process/><About/><Contact/></>}</div></main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><a className="footer-brand" href="./#inicio" aria-label="KRISKO, início"><img src="/images/krisko-monogram.svg" alt="" width="32" height="32"/><span>KRISKO<small>Tecnologia que conecta ideias a resultados.</small></span></a><a className="social-link" href="https://www.instagram.com/kriskoinc/" target="_blank" rel="noopener noreferrer">@kriskoinc <ArrowUpRight size={14} aria-hidden="true"/></a><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
+  return <><a className="skip-link" href="#conteudo" onClick={event => { event.preventDefault(); document.getElementById('conteudo')?.focus() }}>Pular para o conteúdo</a><Header isAboutPage={isAboutPage}/><main id="conteudo" tabIndex={-1}><div className="route-page" key={isAboutPage ? 'about' : 'home'}><div id="inicio"/>{isAboutPage ? <AboutPage/> : <><Hero/><Services/><Projects/><Process/><About/><Contact/></>}</div></main><footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 px-6 py-7 lg:px-12"><a className="footer-brand" href="./#inicio" aria-label="KRISKO, início"><img src="/images/krisko-monogram.svg" alt="" width="32" height="32"/><span>KRISKO<small>Tecnologia que conecta ideias a resultados.</small></span></a><a className="social-link" href="https://www.instagram.com/kriskoinc/" target="_blank" rel="noopener noreferrer">@kriskoinc <ArrowUpRight size={14} aria-hidden="true"/></a><a href="mailto:gustavokrisko@gmail.com">gustavokrisko@gmail.com</a></footer></>
 }
