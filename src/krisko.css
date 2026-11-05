@@ -207,3 +207,57 @@ header {border-bottom-color:#a4a6aa18}
   .hero-showcase,.service-card,.meet-highlights article,.quote-strip,
   .contact-box,.concept-preview {border-color:CanvasText}
 }
+
+/* Institutional hero: the three solution areas replace the duplicated site demo. */
+.hero-brand-panel {
+  position:relative;isolation:isolate;min-width:0;overflow:hidden;
+  border:1px solid #293440;border-radius:20px;
+  background:radial-gradient(ellipse at 100% 0,#0b386026,transparent 65%),#040a10;
+  box-shadow:0 24px 64px #0005;
+}
+.hero-brand-curves {
+  position:absolute;z-index:-1;top:0;right:0;width:100%;height:auto;
+  pointer-events:none;opacity:.8;
+}
+.hero-brand-content {padding:32px}
+.hero-brand-signature {display:flex;align-items:center;gap:12px}
+.hero-brand-signature img {display:block;flex-shrink:0}
+.hero-brand-signature>span {font-size:22px;font-weight:700;letter-spacing:.12em;line-height:1.2;color:#f1f3f5}
+.hero-brand-signature small {display:block;margin-top:5px;font-size:10px;font-weight:400;letter-spacing:.04em;color:#b4bac2}
+.hero-brand-heading {font-size:clamp(1.5rem,2.2vw,1.9rem);letter-spacing:-.035em;line-height:1.3;margin:32px 0 24px;color:#f1f3f5}
+.hero-brand-heading strong {font-weight:500;color:#b4bac2}
+.hero-pillars {list-style:none;padding:0;margin:0}
+.hero-pillars li {border-top:1px solid #94a4b126}
+.hero-pillars a {
+  display:grid;grid-template-columns:22px minmax(0,1fr) 18px;
+  align-items:center;gap:14px;padding:20px 4px;min-height:80px;
+  border-radius:4px;transition:background-color .2s ease;
+}
+.pillar-number {font-size:11px;letter-spacing:.08em;color:#729bce}
+.hero-pillars strong {display:block;font-size:17px;font-weight:600;line-height:1.4;color:#f1f3f5}
+.hero-pillars small {display:block;margin-top:5px;font-size:12px;line-height:1.6;color:#b4bac2}
+.hero-pillars svg {color:#6e9ed4}
+.hero-brand-footer {border-top:1px solid #94a4b126;padding-top:20px;margin:0;font-size:11px;line-height:1.7;color:#929ba5}
+.service-card[id] {scroll-margin-top:32px}
+@media(hover:hover) and (pointer:fine) {
+  .hero-pillars a:hover {background:#155db814}
+  .hero-pillars a:hover strong {color:#a8ccf5}
+}
+@media(max-width:1000px) {
+  .hero-brand-content {padding:26px}
+  .hero-pillars a {gap:10px}
+}
+@media(max-width:760px) {
+  .hero-brand-content {padding:26px}
+  .hero-brand-heading {font-size:26px;margin-top:28px}
+}
+@media(max-width:380px) {
+  .hero-brand-content {padding:22px}
+  .hero-brand-heading {font-size:24px}
+  .hero-pillars strong {font-size:16px}
+}
+@media(prefers-reduced-motion:reduce) {.hero-pillars a {transition:none}}
+@media(forced-colors:active) {
+  .hero-brand-curves {display:none}
+  .hero-brand-panel,.hero-pillars li,.hero-brand-footer {border-color:CanvasText}
+}

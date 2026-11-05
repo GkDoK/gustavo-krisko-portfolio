@@ -16,8 +16,6 @@ function Header({ isAboutPage }: { isAboutPage: boolean }) {
 }
 
 function Hero() {
-  const [selected, setSelected] = useState('restaurante')
-  const preview = concepts.find(concept => concept.id === selected)!
   return <section aria-labelledby="hero-title" className="hero mx-auto max-w-7xl px-6 lg:px-12">
     <div className="hero-copy">
       <p className="eyebrow"><span className="status-dot"/> AUTOMAÇÕES E PRESENÇA DIGITAL</p>
@@ -26,12 +24,27 @@ function Hero() {
       <div className="hero-actions"><ContactLink className="primary-button">Pedir meu orçamento</ContactLink><a className="portfolio-link" href="#projetos">Explorar ideias <ArrowDown className="ui-icon" size={18} aria-hidden="true" /></a></div>
       <p className="service-note">Atendimento próximo. Proposta pensada para o seu negócio.</p>
     </div>
-    <div className="hero-showcase">
-      <div className="showcase-label"><span>UM SITE. MUITAS POSSIBILIDADES.</span><span aria-hidden="true">K / 01</span></div>
-      <div className="showcase-tabs" role="group" aria-label="Escolha um conceito para visualizar">{concepts.slice(0, 3).map(concept => <button className="action-button" key={concept.id} type="button" aria-pressed={selected === concept.id} onClick={() => setSelected(concept.id)}>{concept.category}</button>)}</div>
-      <a className="showcase-image" href={`/projects/concepts/${preview.id}.png`} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar conceito de ${preview.category.toLowerCase()}, abre em nova aba`}><img key={preview.id} className="preview-image" src={`/projects/concepts/${preview.id}.png`} alt={preview.alt} width="1536" height="1024" fetchPriority="high" decoding="async"/><span className="showcase-open"><ArrowUpRight size={20} aria-hidden="true"/></span></a>
-      <div className="showcase-caption"><div><strong>{preview.name}</strong><p>{preview.description}</p></div><span>CONCEITO<br/>DEMONSTRATIVO</span></div>
-    </div>
+    <aside className="hero-brand-panel" aria-labelledby="hero-solutions-title">
+      <svg className="hero-brand-curves" viewBox="0 0 600 400" fill="none" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="brand-curve-edge" x1="70" y1="350" x2="560" y2="20" gradientUnits="userSpaceOnUse"><stop stopColor="#155db8" stopOpacity="0"/><stop offset=".55" stopColor="#176ec5"/><stop offset=".78" stopColor="#72d2ff"/><stop offset="1" stopColor="#155db8" stopOpacity=".15"/></linearGradient>
+          <linearGradient id="brand-curve-fill" x1="180" y1="360" x2="500" y2="30" gradientUnits="userSpaceOnUse"><stop stopColor="#155db8" stopOpacity="0"/><stop offset=".75" stopColor="#155db8" stopOpacity=".22"/><stop offset="1" stopColor="#03090f" stopOpacity="0"/></linearGradient>
+        </defs>
+        <path d="M80 400C240 170 400 60 620 10V400Z" fill="url(#brand-curve-fill)"/>
+        <path d="M80 400C240 170 400 60 620 10" stroke="url(#brand-curve-edge)" strokeWidth="1.5"/>
+        <path d="M-50 340C180 170 400 130 650 210" stroke="url(#brand-curve-edge)" strokeWidth="1"/>
+      </svg>
+      <div className="hero-brand-content">
+        <div className="hero-brand-signature"><img src="/images/krisko-monogram.svg" alt="" width="44" height="44"/><span>KRISKO<small>Tecnologia e Soluções</small></span></div>
+        <p id="hero-solutions-title" className="hero-brand-heading">Três frentes.<br/><strong>Um negócio mais conectado.</strong></p>
+        <ul className="hero-pillars">
+          <li><a href="#automacoes"><span className="pillar-number" aria-hidden="true">01</span><span><strong>Automações</strong><small>Processos mais simples. Rotinas conectadas.</small></span><ArrowUpRight size={18} aria-hidden="true"/></a></li>
+          <li><a href="#presenca-digital"><span className="pillar-number" aria-hidden="true">02</span><span><strong>Presença digital</strong><small>Sua empresa mais próxima de novos clientes.</small></span><ArrowUpRight size={18} aria-hidden="true"/></a></li>
+          <li><a href="#sites-responsivos"><span className="pillar-number" aria-hidden="true">03</span><span><strong>Sites responsivos</strong><small>Uma boa experiência em qualquer tela.</small></span><ArrowUpRight size={18} aria-hidden="true"/></a></li>
+        </ul>
+        <p className="hero-brand-footer">Tecnologia que conecta ideias a resultados.</p>
+      </div>
+    </aside>
     <div className="benefit-line"><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Menos tarefas repetitivas</span><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Mais presença digital</span><span><ArrowUpRight className="ui-icon" size={18} aria-hidden="true" focusable="false"/>Sites em qualquer tela</span></div>
   </section>
 }
@@ -71,19 +84,19 @@ function Services() {
       <p>Da rotina interna ao contato com o cliente, conectamos tecnologia aos objetivos do seu negócio.</p>
     </div>
     <div className="services-grid">
-      <article className="service-card">
+      <article id="automacoes" className="service-card">
         <span className="service-index">01 / SIMPLIFIQUE A OPERAÇÃO</span>
         <h3>Automações empresariais</h3>
         <p>Transforme tarefas repetitivas em fluxos organizados para reduzir trabalho manual e facilitar o acompanhamento da sua operação.</p>
         <ul><li>Mapeamento de rotinas e oportunidades de automação</li><li>Integração entre formulários, planilhas e ferramentas, conforme a viabilidade</li><li>Organização de contatos, avisos e etapas de atendimento</li></ul>
       </article>
-      <article className="service-card">
+      <article id="presenca-digital" className="service-card">
         <span className="service-index">02 / AMPLIE SUA PRESENÇA</span>
         <h3>Mídias e presença digital</h3>
         <p>Fortaleça a forma como sua empresa se apresenta nos canais digitais e facilite o caminho entre conhecer sua marca e entrar em contato.</p>
         <ul><li>Organização de informações em canais comerciais e corporativos</li><li>Conexão entre mídias digitais, páginas de divulgação e contatos</li><li>Estrutura digital para apresentar serviços, produtos e campanhas</li></ul>
       </article>
-      <article className="service-card">
+      <article id="sites-responsivos" className="service-card">
         <span className="service-index">03 / CONECTE SUA EMPRESA</span>
         <h3>Sites responsivos</h3>
         <p>Seu endereço na internet, com a identidade da sua empresa e uma experiência que se adapta a celulares, tablets e computadores.</p>
