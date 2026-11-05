@@ -15,8 +15,13 @@ body {
 .brand-logo {width:48px;height:48px;border-radius:0;filter:drop-shadow(0 0 14px #3985ff35)}
 .brand .brand-name {font-size:27px;letter-spacing:.12em;font-weight:750}
 .brand .brand-name small {font-size:9px;letter-spacing:.16em;color:#a5bbdd}
-.hero h1 {font-weight:650;letter-spacing:-.055em}
+.hero-copy {min-width:0}
+.hero h1 {font-weight:650;letter-spacing:-.055em;overflow-wrap:break-word}
 .hero h1 span {
+  display:block;
+  padding-block:.06em .16em;
+  margin-bottom:-.16em;
+  line-height:1.15;
   color:#83b5ff;
   background:linear-gradient(110deg,#d0e4ff 0%,#6aa9ff 45%,#3679ff 100%);
   background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;

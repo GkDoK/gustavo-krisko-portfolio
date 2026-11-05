@@ -10,7 +10,7 @@ function ContactLink({ className = '', children }: { className?: string; childre
 
 function Header({ isAboutPage }: { isAboutPage: boolean }) {
   return <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-7 lg:px-12">
-    <a href="./#inicio" className="brand" aria-label="KRISKO, início"><img className="brand-logo" src="/images/krisko-monogram.svg" alt="" width="64" height="64" decoding="async" /><span className="brand-name">KRISKO<small>TECNOLOGIA & DESIGN</small></span></a>
+    <a href="./#inicio" className="brand" aria-label="KRISKO, início"><img className="brand-logo" src="/images/krisko-monogram.svg" alt="" width="64" height="64" decoding="async" /><span className="brand-name">KRISKO<small>TECNOLOGIA</small></span></a>
     <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#projetos">Ideias de sites</a><a className="nav-link" href="#/quem-somos" aria-current={isAboutPage ? 'page' : undefined}>Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
   </header>
 }
@@ -21,7 +21,7 @@ function Hero() {
   return <section aria-labelledby="hero-title" className="hero mx-auto max-w-7xl px-6 lg:px-12">
     <div className="hero-copy">
       <p className="eyebrow"><span className="status-dot"/> TECNOLOGIA COM IDENTIDADE</p>
-      <h1 id="hero-title">Ideias que conectam.<br/><span>Presença que<br/>transforma.</span></h1>
+      <h1 id="hero-title">Ideias que conectam.<span>Presença que transforma.</span></h1>
       <p className="description">Sites para empresas e comércios, com a identidade do seu negócio, seus serviços em destaque e um caminho simples para o cliente entrar em contato.</p>
       <div className="hero-actions"><ContactLink className="primary-button">Pedir meu orçamento</ContactLink><a className="portfolio-link" href="#projetos">Explorar ideias <ArrowDown className="ui-icon" size={18} aria-hidden="true" /></a></div>
       <p className="service-note">Atendimento próximo. Proposta pensada para o seu negócio.</p>
