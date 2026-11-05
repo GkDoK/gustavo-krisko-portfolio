@@ -130,12 +130,18 @@ function AboutPage() {
   return <>
     <section className="meet-page mx-auto max-w-7xl px-6 lg:px-12" aria-labelledby="meet-title">
       <a className="meet-back" href="./#inicio"><ArrowDown className="back-icon" size={16} aria-hidden="true"/> Voltar ao início</a>
+      <div className="company-intro-layout">
       <div className="meet-copy company-intro">
         <p className="eyebrow">QUEM SOMOS</p>
         <h1 id="meet-title" tabIndex={-1}>KRISKO<span>.</span><small className="company-subtitle">Tecnologia que conecta ideias a resultados</small></h1>
         <p className="meet-intro">Tecnologia para simplificar a operação e ampliar a presença da sua empresa.</p>
         <p>A KRISKO é uma empresa de tecnologia criada por Gustavo Krisko para ajudar empresas e comércios a conectar processos, comunicação e presença digital.</p>
         <p>Atuamos em três frentes que se complementam: automações de rotinas empresariais, ampliação da presença em mídias digitais comerciais e corporativas, e criação de sites responsivos. Cada projeto parte de uma necessidade concreta do negócio, com escopo e objetivos alinhados antes do desenvolvimento.</p>
+      </div>
+      <figure className="company-visual">
+        <img src="/images/kriskovisual.webp" width="738" height="246" alt="Identidade visual da KRISKO: Tecnologia que conecta ideias a resultados, com ondas de luz azul sobre fundo preto." decoding="async" />
+        <figcaption>KRISKO · Tecnologia e Soluções</figcaption>
+      </figure>
       </div>
       <div className="meet-highlights">
         <article><span className="service-index">01 / IDENTIDADE</span><h2>O seu negócio em primeiro lugar</h2><p>Cada projeto começa pela compreensão da sua operação, do público que você atende e dos objetivos da sua empresa.</p></article>

@@ -1,18 +1,18 @@
 /* KRISKO visual identity, loaded after the existing responsive layout. */
 :root {
   --krisko-blue: #2455a4;
-  --krisko-ink: #040711;
-  --krisko-line: #5274a830;
+  --krisko-ink: #03080d;
+  --krisko-line: #49709a30;
   background: var(--krisko-ink);
 }
 body {
   background:
-    radial-gradient(ellipse at 80% 8%, #102b6038, transparent 35%),
-    radial-gradient(ellipse at 0% 45%, #152d5518, transparent 40%),
+    radial-gradient(ellipse at 88% 4%, #123c691f, transparent 36%),
+    radial-gradient(ellipse at 0% 48%, #10284414, transparent 42%),
     var(--krisko-ink);
 }
 .brand {gap:14px}
-.brand-logo {width:48px;height:48px;border-radius:0;filter:drop-shadow(0 0 14px #2455a435)}
+.brand-logo {width:48px;height:48px;border-radius:0;filter:drop-shadow(0 0 10px #2455a41a)}
 .brand .brand-name {font-size:27px;letter-spacing:.12em;font-weight:750}
 .brand .brand-name small {font-size:9px;letter-spacing:.16em;color:#a5bbdd}
 .hero-copy {min-width:0}
@@ -23,37 +23,38 @@ body {
   margin-bottom:-.16em;
   line-height:1.15;
   color:#8eadd9;
-  background:linear-gradient(110deg,#b6c9e6 0%,#7a9ccb 45%,#537cbb 100%);
+  background:linear-gradient(110deg,#d1ddec 0%,#7b9fce 45%,#4e7dbb 100%);
   background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 .status-dot {background:#2455a4;box-shadow:0 0 16px #2455a4}
 .hero-showcase {
-  background:linear-gradient(145deg,#0c1931,#060d1d) padding-box,
-    linear-gradient(135deg,#658ac099,#23467826 50%,#2455a466) border-box;
-  box-shadow:0 28px 80px #0007,0 0 50px #1a3f7a16;
+  background:linear-gradient(145deg,#08121d,#040a11) padding-box,
+    linear-gradient(135deg,#4c84b766,#23467820 50%,#2455a43d) border-box;
+  box-shadow:0 24px 60px #0006;
+  transform:none;
 }
 .action-button,.showcase-tabs button.action-button {
-  background:linear-gradient(120deg,#194ba8,#103579);
-  border-color:#5279b080;box-shadow:0 6px 24px #194ba82b;
+  background:linear-gradient(120deg,#1b4d96,#12366c);
+  border-color:#5279b080;box-shadow:0 4px 16px #194ba81a;
 }
-.showcase-tabs button.action-button {background:#101f3a;border-color:#4d6e9e3d;box-shadow:none;color:#c7d8f1}
+.showcase-tabs button.action-button {background:#0a1522;border-color:#4d6e9e3d;box-shadow:none;color:#c7d8f1}
 .showcase-tabs button.action-button[aria-pressed=true] {
-  background:linear-gradient(120deg,#194ba8,#103579);border-color:#93afd7;
+  background:linear-gradient(120deg,#1b4d96,#12366c);border-color:#93afd7;
   color:#fff;box-shadow:0 0 18px #194ba82b;
 }
 .showcase-label,.eyebrow {color:#9bb4d8}
 .concept-preview {box-shadow:0 16px 48px #0006,0 0 24px #194ba810}
 .service-card,.meet-highlights article {
   border:1px solid var(--krisko-line);border-radius:16px;padding:30px;
-  background:linear-gradient(145deg,#0e1c34b3,#080e1a);
+  background:linear-gradient(145deg,#0a1420,#060d15);
   box-shadow:inset 0 1px 0 #ffffff05;
   transition:border-color .25s ease,box-shadow .25s ease;
 }
 .service-index {color:#9cb4d6}
-.quote-strip {border-color:var(--krisko-line);background:linear-gradient(110deg,#0e2041,#080f1f);border-radius:16px}
+.quote-strip {border-color:var(--krisko-line);background:linear-gradient(110deg,#0a1828,#050c14);border-radius:16px}
 .contact-box {
   border-color:#496b9e52;border-radius:20px;
-  background:radial-gradient(ellipse at 0 0,#1537754d,transparent 70%),linear-gradient(125deg,#0b1831,#070d19);
+  background:radial-gradient(ellipse at 100% 0,#17477b26,transparent 65%),linear-gradient(125deg,#091522,#040a11);
   box-shadow:0 0 70px #194ba80a;
 }
 .company-subtitle {font-size:clamp(1rem,2vw,1.3rem);letter-spacing:.02em;line-height:1.6;max-width:560px}
@@ -64,7 +65,7 @@ footer {align-items:center}
 .social-link {display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#a3bbdc}
 @media(hover:hover) and (pointer:fine) {
   .action-button:hover,.showcase-tabs button.action-button:hover {
-    background:linear-gradient(120deg,#245db9,#17428f);
+    background:linear-gradient(120deg,#245caa,#174280);
     box-shadow:0 10px 34px #194ba84d;
     animation:none;transform:translateY(-2px);
   }
@@ -86,4 +87,62 @@ footer {align-items:center}
 @media(forced-colors:active) {
   .hero h1 span {background:none;-webkit-text-fill-color:CanvasText;color:CanvasText}
   .service-card,.meet-highlights article,.contact-box {border-color:CanvasText}
+}
+
+/* Reference identity: near-black surfaces, precise borders and blue light arcs. */
+header {border-bottom-color:#8daac218}
+.hero {position:relative;isolation:isolate}
+.hero::before {
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  top:36px;right:3%;width:min(76%,720px);height:220px;
+  border-top:1px solid #3482bb5c;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 0,#1363a626,transparent 65%);
+  transform:rotate(-18deg);
+}
+.hero h1 {line-height:1.12}
+.hero .description {color:#b2bfd0}
+.showcase-label,.eyebrow {color:#9bb3d0}
+.benefit-line {border-color:#8daac21f}
+.concept-preview {
+  background:linear-gradient(#050c13,#050c13) padding-box,
+    linear-gradient(135deg,#5881a94d,#23405b24 55%,#49709a30) border-box;
+}
+.company-intro-layout {
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
+  align-items:center;gap:clamp(32px,4vw,64px);
+}
+.company-intro-layout .company-intro {min-width:0;max-width:none}
+.company-intro-layout .company-intro>p:last-child {margin-bottom:0}
+.company-visual {
+  min-width:0;width:100%;margin:0;align-self:center;
+}
+.company-visual img {
+  display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;
+  border:1px solid #6688a333;border-radius:16px;
+  background:#03080d;box-shadow:0 24px 64px #0006,0 0 40px #1264ae0a;
+}
+.company-visual figcaption {
+  margin-top:14px;font-size:11px;letter-spacing:.08em;
+  line-height:1.6;color:#8ba0bb;text-align:right;
+}
+.meet-photo {background:#08121c;border-color:#6688a333}
+.meet-highlights {gap:24px}
+.founder-section {border-top-color:#8daac21f}
+.contact-box {box-shadow:0 24px 60px #0003}
+.primary-button:focus-visible,.header-contact:focus-visible {
+  background:#143e7d;outline-color:#a4bddf;
+}
+@media(max-width:1000px) {
+  .company-intro-layout {grid-template-columns:minmax(0,1fr);gap:32px}
+  .company-visual {max-width:738px}
+  .company-visual figcaption {text-align:left}
+}
+@media(max-width:760px) {
+  .hero::before {top:10px;right:8%;width:80%;height:150px;opacity:.6}
+  .company-visual img {border-radius:12px}
+  .company-intro-layout {gap:28px}
+}
+@media(forced-colors:active) {
+  .hero::before {display:none}
+  .company-visual img {border-color:CanvasText}
 }
