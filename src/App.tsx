@@ -148,17 +148,6 @@ function AboutPage() {
         <article><span className="service-index">02 / CLAREZA</span><h2>Uma experiência simples</h2><p>Conectamos processos e canais digitais para facilitar a rotina da empresa e o caminho do cliente até o contato.</p></article>
         <article><span className="service-index">03 / PROXIMIDADE</span><h2>Conversa em cada etapa</h2><p>Alinhamos o escopo, o orçamento e as etapas do desenvolvimento com você, de acordo com as necessidades do projeto.</p></article>
       </div>
-      <section className="meet-grid founder-section" aria-labelledby="founder-title">
-        <div className="meet-copy">
-          <p className="eyebrow">QUEM ESTÁ POR TRÁS DA KRISKO</p>
-          <h2 id="founder-title">Prazer, Gustavo Krisko<span>.</span></h2>
-          <p>Sou estudante de Engenharia de Software na Universidade São Judas e o responsável pela KRISKO. Uno meus estudos à prática para desenvolver soluções de automação, fortalecer a presença digital de empresas e criar sites responsivos.</p>
-        </div>
-        <figure className="meet-photo">
-          <img src="/images/gustavo-aws-summit.jpg" width="1152" height="1536" alt="Gustavo Krisko ao lado do letreiro do AWS Summit, em São Paulo." loading="lazy" decoding="async" />
-          <figcaption>Gustavo Krisko · AWS Summit, São Paulo</figcaption>
-        </figure>
-      </section>
     </section>
     <Contact/>
   </>
