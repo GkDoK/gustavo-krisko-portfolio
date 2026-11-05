@@ -1,20 +1,19 @@
 /* KRISKO visual identity, loaded after the existing responsive layout. */
 :root {
-  --krisko-blue: #2455a4;
-  --krisko-ink: #03080d;
+  --krisko-blue: #155db8;
+  --krisko-ink: #020509;
   --krisko-line: #49709a30;
   background: var(--krisko-ink);
 }
 body {
   background:
-    radial-gradient(ellipse at 88% 4%, #123c691f, transparent 36%),
-    radial-gradient(ellipse at 0% 48%, #10284414, transparent 42%),
+    radial-gradient(ellipse at 92% 3%, #0752a00d, transparent 34%),
     var(--krisko-ink);
 }
 .brand {gap:14px}
-.brand-logo {width:48px;height:48px;border-radius:0;filter:drop-shadow(0 0 10px #2455a41a)}
+.brand-logo {width:48px;height:48px;border-radius:0;filter:drop-shadow(0 0 10px #155db81a)}
 .brand .brand-name {font-size:27px;letter-spacing:.12em;font-weight:750}
-.brand .brand-name small {font-size:9px;letter-spacing:.16em;color:#a5bbdd}
+.brand .brand-name small {font-size:9px;letter-spacing:.16em;color:#b7b9bd}
 .hero-copy {min-width:0}
 .hero h1 {font-weight:650;letter-spacing:-.055em;overflow-wrap:break-word}
 .hero h1 span {
@@ -22,55 +21,55 @@ body {
   padding-block:.06em .16em;
   margin-bottom:-.16em;
   line-height:1.15;
-  color:#8eadd9;
-  background:linear-gradient(110deg,#d1ddec 0%,#7b9fce 45%,#4e7dbb 100%);
+  color:#2874cd;
+  background:linear-gradient(110deg,#2874cd,#155db8);
   background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-.status-dot {background:#2455a4;box-shadow:0 0 16px #2455a4}
+.status-dot {background:#155db8;box-shadow:0 0 16px #155db8}
 .hero-showcase {
-  background:linear-gradient(145deg,#08121d,#040a11) padding-box,
-    linear-gradient(135deg,#4c84b766,#23467820 50%,#2455a43d) border-box;
+  background:linear-gradient(145deg,#06080c,#030509) padding-box,
+    linear-gradient(135deg,#4c84b766,#23467820 50%,#155db83d) border-box;
   box-shadow:0 24px 60px #0006;
   transform:none;
 }
 .action-button,.showcase-tabs button.action-button {
-  background:linear-gradient(120deg,#1b4d96,#12366c);
-  border-color:#5279b080;box-shadow:0 4px 16px #194ba81a;
+  background:linear-gradient(120deg,#155db8,#0d3672);
+  border-color:#5279b080;box-shadow:0 4px 16px #155db81a;
 }
-.showcase-tabs button.action-button {background:#0a1522;border-color:#4d6e9e3d;box-shadow:none;color:#c7d8f1}
+.showcase-tabs button.action-button {background:#080a0e;border-color:#4d6e9e3d;box-shadow:none;color:#d4d6da}
 .showcase-tabs button.action-button[aria-pressed=true] {
-  background:linear-gradient(120deg,#1b4d96,#12366c);border-color:#93afd7;
-  color:#fff;box-shadow:0 0 18px #194ba82b;
+  background:linear-gradient(120deg,#155db8,#0d3672);border-color:#aaacb0;
+  color:#fff;box-shadow:0 0 18px #155db82b;
 }
-.showcase-label,.eyebrow {color:#9bb4d8}
-.concept-preview {box-shadow:0 16px 48px #0006,0 0 24px #194ba810}
+.showcase-label,.eyebrow {color:#afb1b5}
+.concept-preview {box-shadow:0 16px 48px #0006,0 0 24px #155db810}
 .service-card,.meet-highlights article {
   border:1px solid var(--krisko-line);border-radius:16px;padding:30px;
-  background:linear-gradient(145deg,#0a1420,#060d15);
+  background:linear-gradient(145deg,#07090d,#04060a);
   box-shadow:inset 0 1px 0 #ffffff05;
   transition:border-color .25s ease,box-shadow .25s ease;
 }
-.service-index {color:#9cb4d6}
-.quote-strip {border-color:var(--krisko-line);background:linear-gradient(110deg,#0a1828,#050c14);border-radius:16px}
+.service-index {color:#afb1b5}
+.quote-strip {border-color:var(--krisko-line);background:linear-gradient(110deg,#090b0f,#04060a);border-radius:16px}
 .contact-box {
   border-color:#496b9e52;border-radius:20px;
-  background:radial-gradient(ellipse at 100% 0,#17477b26,transparent 65%),linear-gradient(125deg,#091522,#040a11);
-  box-shadow:0 0 70px #194ba80a;
+  background:radial-gradient(ellipse at 100% 0,#17477b26,transparent 65%),linear-gradient(125deg,#080a0e,#030509);
+  box-shadow:0 0 70px #155db80a;
 }
 .company-subtitle {font-size:clamp(1rem,2vw,1.3rem);letter-spacing:.02em;line-height:1.6;max-width:560px}
 footer {align-items:center}
 .footer-brand {display:inline-flex;gap:12px;align-items:center;color:#eff5ff}
 .footer-brand>span {font-size:15px;font-weight:700;letter-spacing:.12em}
-.footer-brand small {display:block;font-size:11px;letter-spacing:0;font-weight:400;color:#91a8ca;margin-top:5px;line-height:1.6}
-.social-link {display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#a3bbdc}
+.footer-brand small {display:block;font-size:11px;letter-spacing:0;font-weight:400;color:#a4a6aa;margin-top:5px;line-height:1.6}
+.social-link {display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#b6b8bc}
 @media(hover:hover) and (pointer:fine) {
   .action-button:hover,.showcase-tabs button.action-button:hover {
-    background:linear-gradient(120deg,#245caa,#174280);
-    box-shadow:0 10px 34px #194ba84d;
+    background:linear-gradient(120deg,#1b6ac9,#12468d);
+    box-shadow:0 10px 34px #155db84d;
     animation:none;transform:translateY(-2px);
   }
-  .service-card:hover,.meet-highlights article:hover {border-color:#5279b080;box-shadow:0 0 30px #194ba812}
-  .more-projects.action-button:hover {background:#91baff0a;box-shadow:none;transform:none}
+  .service-card:hover,.meet-highlights article:hover {border-color:#5279b080;box-shadow:0 0 30px #155db812}
+  .more-projects.action-button:hover {background:#b4b6ba0a;box-shadow:none;transform:none}
 }
 @media(max-width:760px) {
   .brand-logo {width:42px;height:42px}
@@ -90,22 +89,22 @@ footer {align-items:center}
 }
 
 /* Reference identity: near-black surfaces, precise borders and blue light arcs. */
-header {border-bottom-color:#8daac218}
+header {border-bottom-color:#a4a6aa18}
 .hero {position:relative;isolation:isolate}
 .hero::before {
   content:"";position:absolute;z-index:-1;pointer-events:none;
   top:36px;right:3%;width:min(76%,720px);height:220px;
-  border-top:1px solid #3482bb5c;border-radius:50%;
-  background:radial-gradient(ellipse at 50% 0,#1363a626,transparent 65%);
+  border-top:1px solid #299de566;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 0,#0759b326,transparent 65%);
   transform:rotate(-18deg);
 }
 .hero h1 {line-height:1.12}
-.hero .description {color:#b2bfd0}
-.showcase-label,.eyebrow {color:#9bb3d0}
-.benefit-line {border-color:#8daac21f}
+.hero .description {color:#bbbdc1}
+.showcase-label,.eyebrow {color:#aeb0b4}
+.benefit-line {border-color:#a4a6aa1f}
 .concept-preview {
-  background:linear-gradient(#050c13,#050c13) padding-box,
-    linear-gradient(135deg,#5881a94d,#23405b24 55%,#49709a30) border-box;
+  background:linear-gradient(#04060a,#04060a) padding-box,
+    linear-gradient(135deg,#797b7f4d,#23405b24 55%,#49709a30) border-box;
 }
 .company-intro-layout {
   display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
@@ -118,19 +117,19 @@ header {border-bottom-color:#8daac218}
 }
 .company-visual img {
   display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;
-  border:1px solid #6688a333;border-radius:16px;
-  background:#03080d;box-shadow:0 24px 64px #0006,0 0 40px #1264ae0a;
+  border:1px solid #81838733;border-radius:16px;
+  background:#020509;box-shadow:0 24px 64px #0006,0 0 40px #1264ae0a;
 }
 .company-visual figcaption {
   margin-top:14px;font-size:11px;letter-spacing:.08em;
-  line-height:1.6;color:#8ba0bb;text-align:right;
+  line-height:1.6;color:#9b9da1;text-align:right;
 }
-.meet-photo {background:#08121c;border-color:#6688a333}
+.meet-photo {background:#06080c;border-color:#81838733}
 .meet-highlights {gap:24px}
-.founder-section {border-top-color:#8daac21f}
+.founder-section {border-top-color:#a4a6aa1f}
 .contact-box {box-shadow:0 24px 60px #0003}
 .primary-button:focus-visible,.header-contact:focus-visible {
-  background:#143e7d;outline-color:#a4bddf;
+  background:#143e7d;outline-color:#b8babe;
 }
 @media(max-width:1000px) {
   .company-intro-layout {grid-template-columns:minmax(0,1fr);gap:32px}
@@ -145,4 +144,66 @@ header {border-bottom-color:#8daac218}
 @media(forced-colors:active) {
   .hero::before {display:none}
   .company-visual img {border-color:CanvasText}
+}
+
+/* Shared palette: reference-black surfaces, neutral type and concentrated blue. */
+:root {
+  --krisko-blue:#155db8;
+  --krisko-ink:#03090f;
+  --krisko-surface:#060c12;
+  --krisko-line:#293440;
+  color:#f1f3f5;
+  background:var(--krisko-ink);
+}
+.description,.hero .description,.meet-copy>p,
+.projects-heading>p,.service-card>p,.service-card li,
+.concept-body p,.process-steps p,.about-copy>p,
+.contact-copy>p:last-child,.quote-strip p,.meet-highlights p {
+  color:#b4bac2;
+}
+.meet-copy>.meet-intro,.about-copy>p:first-child {color:#eef0f3}
+.eyebrow,.showcase-label,.service-index,.meet-copy>.eyebrow,
+.company-subtitle,.brand .brand-name small {color:#b4bac2}
+.hero h1 span {
+  color:#2874cd;
+  background:none;
+  -webkit-text-fill-color:currentColor;
+}
+.projects-heading h2 span,.about-heading h2 span,
+.contact-copy h2 span,.meet-copy h1>span,.process-number {color:#2874cd}
+.hero-showcase,.service-card,.meet-highlights article,.quote-strip,.contact-box {
+  background:#060c12;
+  border-color:#293440;
+}
+.hero-showcase {
+  border:1px solid #293440;
+  background:linear-gradient(145deg,#080f17,#03090f);
+  box-shadow:0 24px 60px #0005;
+}
+.concept-preview {background:#03090f;border-color:#293440}
+.contact-box {
+  background:radial-gradient(ellipse at 100% 0,#0b4c8c1f,transparent 62%),#060c12;
+}
+.nav-link,.benefit-line,.portfolio-link,.project-cta,
+.contact-email a,.social-link {color:#d0d4da}
+.primary-button,.header-contact,.showcase-tabs button.action-button[aria-pressed=true] {
+  background:linear-gradient(120deg,#155db8,#0d3672);
+  border-color:#2869b5;
+  color:#fff;
+}
+.primary-button:focus-visible,.header-contact:focus-visible {background:#124b96;outline-color:#5c9ada}
+.showcase-tabs button.action-button {background:#0a1119;color:#d0d4da;border-color:#293440}
+.company-visual img {background:#03090f;border-color:#293440}
+@media(hover:hover) and (pointer:fine) {
+  .primary-button:hover,.header-contact:hover,
+  .showcase-tabs button.action-button:hover {
+    background:linear-gradient(120deg,#1b6ac9,#12468d);
+    border-color:#3a85ce;color:#fff;
+  }
+  .service-card:hover,.meet-highlights article:hover {border-color:#25578d}
+}
+@media(forced-colors:active) {
+  .hero h1 span {color:CanvasText;-webkit-text-fill-color:CanvasText}
+  .hero-showcase,.service-card,.meet-highlights article,.quote-strip,
+  .contact-box,.concept-preview {border-color:CanvasText}
 }
