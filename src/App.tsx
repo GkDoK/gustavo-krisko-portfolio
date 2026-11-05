@@ -122,7 +122,7 @@ function Contact() {
   return <section id="contato" aria-labelledby="contact-title" className="contact mx-auto max-w-7xl px-6 lg:px-12">
     <div className="contact-box">
       <div className="contact-copy"><p className="eyebrow">VAMOS CONVERSAR</p><h2 id="contact-title">Conte sobre<br/>o seu negócio<span>.</span></h2><p>Conte o que sua empresa faz e o que você quer melhorar: automatizar uma rotina, fortalecer seus canais digitais ou criar um site responsivo. A KRISKO ajuda a definir os próximos passos.</p></div>
-      <div className="contact-actions"><ContactLink className="primary-button">Chamar no WhatsApp</ContactLink><p className="contact-phone">(11) 94372-6269</p><div className="contact-email"><span>Prefere conversar por e-mail?</span><a href="mailto:kriskocompany0@gmail.com">kriskocompany0@gmail.com</a></div><p className="contact-location">Atendimento em todo o estado de São Paulo.</p></div>
+      <div className="contact-actions"><ContactLink className="primary-button">Chamar no WhatsApp</ContactLink><p className="contact-phone">(11) 94372-6269</p><div className="contact-email"><span>Prefere conversar por e-mail?</span><a href="mailto:kriskocompany0@gmail.com">kriskocompany0@gmail.com</a></div><p className="contact-location">Atendimento em todo o Brasil.</p></div>
     </div>
   </section>
 }
