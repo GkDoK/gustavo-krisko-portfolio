@@ -10,7 +10,7 @@ function ContactLink({ className = '', children }: { className?: string; childre
 
 function Header({ isAboutPage }: { isAboutPage: boolean }) {
   return <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-7 lg:px-12">
-    <a href="./#inicio" className="brand" aria-label="KRISKO, início"><img className="brand-logo" src="/images/krisko-monogram.svg" alt="" width="64" height="64" decoding="async" /><span className="brand-name">KRISKO<small>TECNOLOGIA</small></span></a>
+    <a href="./#inicio" className="brand" aria-label="KRISKO, início"><img className="brand-logo" src="/images/krisko-monogram.svg" alt="" width="64" height="64" decoding="async" /><span className="brand-name">KRISKO<small>Tecnologia e Soluções</small></span></a>
     <nav className="header-nav" aria-label="Navegação principal"><a className="nav-link" href="./#servicos">Soluções</a><a className="nav-link" href="#/quem-somos" aria-current={isAboutPage ? 'page' : undefined}>Quem somos</a><ContactLink className="header-contact">Pedir orçamento</ContactLink></nav>
   </header>
 }
